@@ -62,6 +62,8 @@ jobs:
     # Changelog for Unreleased changes
     - stage: Update Changelog
       if: branch = develop AND type NOT IN (pull_request)
+      install:
+        - echo 'Skipping install'
       script:
         - echo "Updating CHANGELOG.md (unreleased)"
         - echo "For Reasons"
@@ -69,6 +71,8 @@ jobs:
     # Changelog for a tagged release
     - stage: Update Changelog
       if: branch = master AND tag IS present
+      install:
+        - echo 'Skipping install'
       script:
         - echo "Updating CHANGELOG.md (release)"
         - echo "For Reasons"
