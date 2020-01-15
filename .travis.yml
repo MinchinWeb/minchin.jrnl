@@ -70,7 +70,7 @@ jobs:
 
     # Changelog for a tagged release
     - stage: Update Changelog
-      if: branch = master AND tag IS present
+      if: tag IS present
       install:
         - echo 'Skipping install'
       script:
@@ -78,7 +78,7 @@ jobs:
         - echo "For Reasons"
 
     - stage: Deploy
-      if: branch = master AND tag IS present
+      if: tag IS present
       before_deploy:
         - poetry config pypi-token.pypi "$PYPI_TOKEN"
         - poetry version "$TRAVIS_TAG"
