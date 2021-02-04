@@ -396,6 +396,12 @@ def all_input_was_used(context):
 def run(context, command, text=""):
     text = text or context.text or ""
 
+    if "config_path" in context and context.config_path is not None:
+        with open(context.config_path) as f:
+            context.jrnl_config = yaml.load(f, Loader=yaml.FullLoader)
+    else:
+        context.jrnl_config = None
+
     if "cache_dir" in context and context.cache_dir is not None:
         cache_dir = os.path.join("features", "cache", context.cache_dir)
         command = command.format(cache_dir=cache_dir)
@@ -425,6 +431,7 @@ def run(context, command, text=""):
             patch("sys.stdin.read", side_effect=lambda: text), \
             patch("jrnl.time.parse", side_effect=_mock_time_parse(context)), \
             patch("jrnl.config.get_config_path", side_effect=lambda: context.config_path), \
+            patch("jrnl.install.load_or_install_jrnl",wraps=jrnl.install.load_or_install_jrnl), \
             patch("jrnl.install.get_config_path", side_effect=lambda: context.config_path) \
         :
             context.editor = mock_editor
