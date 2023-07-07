@@ -2,7 +2,7 @@ import shlex
 
 import pytest
 
-from jrnl.args import parse_args
+from minchin.jrnl.args import parse_args
 
 
 def cli_as_dict(str):
@@ -52,7 +52,7 @@ def test_delete_alone():
 
 
 def test_diagnostic_alone():
-    from jrnl.commands import preconfig_diagnostic
+    from minchin.jrnl.commands import preconfig_diagnostic
 
     assert cli_as_dict("--diagnostic") == expected_args(
         preconfig_cmd=preconfig_diagnostic
@@ -64,13 +64,13 @@ def test_edit_alone():
 
 
 def test_encrypt_alone():
-    from jrnl.commands import postconfig_encrypt
+    from minchin.jrnl.commands import postconfig_encrypt
 
     assert cli_as_dict("--encrypt") == expected_args(postconfig_cmd=postconfig_encrypt)
 
 
 def test_decrypt_alone():
-    from jrnl.commands import postconfig_decrypt
+    from minchin.jrnl.commands import postconfig_decrypt
 
     assert cli_as_dict("--decrypt") == expected_args(postconfig_cmd=postconfig_decrypt)
 
@@ -115,7 +115,7 @@ def test_export_alone():
 
 
 def test_import_alone():
-    from jrnl.commands import postconfig_import
+    from minchin.jrnl.commands import postconfig_import
 
     assert cli_as_dict("--import") == expected_args(postconfig_cmd=postconfig_import)
 
@@ -138,7 +138,7 @@ def test_limit_shorthand_alone():
 
 
 def test_list_alone():
-    from jrnl.commands import postconfig_list
+    from minchin.jrnl.commands import postconfig_list
 
     assert cli_as_dict("--ls") == expected_args(postconfig_cmd=postconfig_list)
 
@@ -175,7 +175,7 @@ def test_text_alone():
 
 
 def test_version_alone():
-    from jrnl.commands import preconfig_version
+    from minchin.jrnl.commands import preconfig_version
 
     assert cli_as_dict("--version") == expected_args(preconfig_cmd=preconfig_version)
 

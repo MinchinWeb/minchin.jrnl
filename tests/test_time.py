@@ -1,6 +1,6 @@
 import datetime
 
-from jrnl import time
+from minchin.jrnl import time
 
 
 def test_default_hour_is_added():

@@ -7,8 +7,8 @@ import os
 import re
 import unicodedata
 
-from jrnl.color import ERROR_COLOR
-from jrnl.color import RESET_COLOR
+from ..color import ERROR_COLOR
+from ..color import RESET_COLOR
 
 
 class TextExporter:

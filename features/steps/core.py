@@ -17,13 +17,13 @@ import keyring
 import toml
 import yaml
 
-from jrnl import Journal
-from jrnl import __version__
-from jrnl import install
-from jrnl import plugins
-from jrnl.cli import cli
-from jrnl.config import load_config
-from jrnl.os_compat import on_windows
+from minchin.jrnl import Journal
+from minchin.jrnl import __version__
+from minchin.jrnl import install
+from minchin.jrnl import plugins
+from minchin.jrnl.cli import cli
+from minchin.jrnl.config import load_config
+from minchin.jrnl.os_compat import on_windows
 
 try:
     import parsedatetime.parsedatetime_consts as pdt

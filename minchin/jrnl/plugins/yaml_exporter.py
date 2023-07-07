@@ -7,9 +7,9 @@ import os
 import re
 import sys
 
-from jrnl.color import ERROR_COLOR
-from jrnl.color import RESET_COLOR
-from jrnl.color import WARNING_COLOR
+from ..color import ERROR_COLOR
+from ..color import RESET_COLOR
+from ..color import WARNING_COLOR
 
 from .text_exporter import TextExporter
 

@@ -16,7 +16,7 @@ import sys
 
 
 def preconfig_diagnostic(_):
-    from jrnl import __version__
+    from minchin.jrnl import __version__
 
     print(
         f"jrnl: {__version__}\n"
@@ -26,8 +26,8 @@ def preconfig_diagnostic(_):
 
 
 def preconfig_version(_):
-    from jrnl import __title__
-    from jrnl import __version__
+    from minchin.jrnl import __title__
+    from minchin.jrnl import __version__
 
     version_str = f"""{__title__} version {__version__}
 
