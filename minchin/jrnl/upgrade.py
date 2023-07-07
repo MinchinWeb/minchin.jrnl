@@ -3,9 +3,10 @@
 
 import os
 import sys
+import shutil
 
 from . import Journal
-from . import __version__
+from . import __version__, __version_codename__
 from .EncryptedJournal import EncryptedJournal
 from .config import is_config_json
 from .config import load_config
@@ -43,11 +44,17 @@ def check_exists(path):
     return os.path.exists(path)
 
 
-def upgrade_jrnl(config_path):
+def upgrade_jrnl_1_2(config_path):
+    """
+    Upgrades jrnl configuration from version 1 to 2.
+
+    In particular, it upgrades the configuration file from JSON to YAML.
+    """
+
     config = load_config(config_path)
 
     print(
-        f"""Welcome to jrnl {__version__}.
+        f"""Welcome to minchin.jrnl {__version__}.
 
 It looks like you've been using an older version of jrnl until now. That's
 okay - jrnl will now upgrade your configuration and journal files. Afterwards
@@ -175,5 +182,69 @@ older versions of jrnl anymore.
     print("\nWe're all done here and you can start enjoying jrnl 2.", file=sys.stderr)
 
 
-def is_old_version(config_path):
+def is_version_1(config_path):
+    """
+    If the configuration file is in JSON, assume the configuration is for jrnl
+    v1.
+    """
     return is_config_json(config_path)
+
+
+def upgrade_jrnl_legacy_phoenix(old_config_path, new_config_path):
+    """
+    Upgrades jrnl configuration from "Legacy" to "Phoenix".
+
+    In particular, it changes the location on disk of the configuration file.
+    """
+
+    config = load_config(old_config_path)
+
+    print(
+        f"""Welcome to minchin.jrnl {__version__} "{__version_codename__}".
+
+It looks like you've been using an "legacy" version of jrnl until now. Thank
+you for making the change!
+
+Minchin.jrnl will now upgrade your configuration, creating a copy for it's
+own use. Your journal files will NOT be moved (but you can do this manually
+and update the configuration to match).
+"""
+    )
+
+    all_journals = []
+    for journal_name, journal_conf in config["journals"].items():
+        if isinstance(journal_conf, dict):
+            path = journal_conf.get("journal")
+        else:
+            path = journal_conf
+
+        if os.path.exists(os.path.expanduser(path)):
+            path = os.path.expanduser(path)
+        else:
+            print(f"\nError: {path} does not exist.")
+            continue
+
+        all_journals[journal_name] = path
+
+    longest_journal_name = max([len(journal) for journal in config["journals"]])
+
+    if all_journals:
+        print("\nFollowing journals will be not be touched:", file=sys.stderr)
+        for journal, path in all_journals.items():
+            print(
+                "    {:{pad}} -> {}".format(journal, path, pad=longest_journal_name),
+                file=sys.stderr,
+            )
+
+    try:
+        cont = yesno("\nContinue upgrading minchin.jrnl?", default=False)
+        if not cont:
+            raise KeyboardInterrupt
+    except KeyboardInterrupt:
+        raise UserAbort("minchin.jrnl NOT upgraded, exiting.")
+    
+    print("\nCopying configuration...", file=sys.stderr)
+
+    shutil.copy(old_config_path, new_config_path)
+
+    print('\nWe\'re all done here and you can start enjoying minchin.jrnl "Phoenix"!', file=sys.stderr)

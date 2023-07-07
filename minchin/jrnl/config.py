@@ -54,15 +54,22 @@ def load_config(config_path):
 
 
 def is_config_json(config_path):
+    """
+    For v1 of jrnl, configuration was kept in a JSON file. Later versions
+    (starting with v2) store the configuration in YAML.
+    """
+    
     with open(config_path, "r", encoding="utf-8") as f:
         config_file = f.read()
     return config_file.strip().startswith("{")
 
 
 def update_config(config, new_config, scope, force_local=False):
-    """Updates a config dict with new values - either global if scope is None
+    """
+    Updates a config dict with new values - either global if scope is None
     or config['journals'][scope] is just a string pointing to a journal file,
-    or within the scope"""
+    or within the scope
+    """
     if scope and type(config["journals"][scope]) is dict:  # Update to journal specific
         config["journals"][scope].update(new_config)
     elif scope and force_local:  # Convert to dict
