@@ -19,7 +19,7 @@ def preconfig_diagnostic(_):
     from minchin.jrnl import __version__
 
     print(
-        f"jrnl: {__version__}\n"
+        f"minchin.jrnl: {__version__}\n"
         f"Python: {sys.version}\n"
         f"OS: {platform.system()} {platform.release()}"
     )

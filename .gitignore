@@ -54,3 +54,6 @@ exp/
 _extras/
 *.sublime-*
 site/
+
+.pytest_cache/
+.venv*/

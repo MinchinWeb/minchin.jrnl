@@ -23,7 +23,7 @@ from minchin.jrnl import install
 from minchin.jrnl import plugins
 from minchin.jrnl.cli import cli
 from minchin.jrnl.config import load_config
-from minchin.jrnl.os_compat import on_windows
+from minchin.jrnl.os_compat import ON_WINDOWS
 
 try:
     import parsedatetime.parsedatetime_consts as pdt
@@ -91,7 +91,7 @@ keyring.set_keyring(TestKeyring())
 
 
 def ushlex(command):
-    return shlex.split(command, posix=not on_windows)
+    return shlex.split(command, posix=not ON_WINDOWS)
 
 
 def read_journal(journal_name="default"):

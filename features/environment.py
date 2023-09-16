@@ -1,7 +1,7 @@
 import os
 import shutil
 
-from minchin.jrnl.os_compat import on_windows
+from minchin.jrnl.os_compat import ON_WINDOWS
 
 CWD = os.getcwd()
 
@@ -42,7 +42,7 @@ def before_feature(context, feature):
         feature.skip()
         return
 
-    if "skip_win" in feature.tags and on_windows:
+    if "skip_win" in feature.tags and ON_WINDOWS:
         feature.skip("Skipping on Windows")
         return
 
@@ -69,7 +69,7 @@ def before_scenario(context, scenario):
         scenario.skip()
         return
 
-    if "skip_win" in scenario.effective_tags and on_windows:
+    if "skip_win" in scenario.effective_tags and ON_WINDOWS:
         scenario.skip("Skipping on Windows")
         return
 
