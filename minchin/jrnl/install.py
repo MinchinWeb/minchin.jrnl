@@ -47,6 +47,7 @@ CONFIG_DIR = Path(
         )
     )
 ) or (USER_HOME / PLATFORM_DIRS_APP_NAME)
+
 JOURNAL_BASE_DIR = (
     Path(os.path.expanduser(user_documents_dir() or USER_HOME))
     / PLATFORM_DIRS_APP_NAME
@@ -109,8 +110,10 @@ def upgrade_config(config):
 
 def save_config(config):
     config["version"] = __version__
-    print(CONFIG_FILEPATH)
-    print(config)
+
+    # make sure the base folder already exists
+    CONFIG_FILEPATH.parent.mkdir(exist_ok=True, parents=True)
+
     with open(CONFIG_FILEPATH, "w") as f:
         yaml.safe_dump(
             config, f, encoding="utf-8", allow_unicode=True, default_flow_style=False
@@ -134,8 +137,20 @@ def load_or_install_jrnl():
         if os.path.exists(LEGACY_CONFIG_FILE_PATH)
         else LEGACY_CONFIG_FILE_PATH_FALLBACK
     )
-    if os.path.exists(LEGACY_CONFIG_PATH) and not MY_CONFIG_FILEPATH.exists():
+
+    if MY_CONFIG_FILEPATH.exists():
+        logging.debug("Reading configuration from file %s", LEGACY_CONFIG_PATH)
+        config = load_config(MY_CONFIG_FILEPATH)
+
+        # upgrade, if needed??
+
+        upgrade_config(config)
+        verify_config_colors(config)
+
+    elif os.path.exists(LEGACY_CONFIG_PATH) and not MY_CONFIG_FILEPATH.exists():
         from . import upgrade
+
+
 
         logging.debug("Reading configuration from file %s", LEGACY_CONFIG_PATH)
         config = load_config(LEGACY_CONFIG_PATH)
@@ -195,7 +210,7 @@ def install():
 
     # Where to create the journal?
     path_query = (
-        f"Path to your journal file (leave blank for {DEFAULT_JOURNAL_FILEPATH}): "
+        f'Path to your journal file (leave blank for "{DEFAULT_JOURNAL_FILEPATH}"): '
     )
     MY_JOURNAL_PATH = os.path.abspath(
         input(path_query).strip() or DEFAULT_JOURNAL_FILEPATH
@@ -213,12 +228,13 @@ def install():
 
     # Encrypt it?
     encrypt = yesno(
-        "Do you want to encrypt your journal? You can always change this later",
+        "Do you want to encrypt your journal? (You can always change this later.)",
         default=False,
     )
     if encrypt:
         default_config["encrypt"] = True
         print("Journal will be encrypted.", file=sys.stderr)
+    print()
 
     save_config(default_config)
     return default_config
