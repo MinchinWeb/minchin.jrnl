@@ -32,10 +32,12 @@ def list_journals(config):
     MY_CONFIG_FILEPATH = os.path.realpath(CONFIG_FILEPATH)
 
     """List the journals specified in the configuration file"""
-    result = f"Journals defined in {MY_CONFIG_FILEPATH}\n"
-    ml = min(max(len(k) for k in config["journals"]), 20)
-    for journal, cfg in config["journals"].items():
-        result += " * {:{}} -> {}\n".format(
-            journal, ml, cfg["journal"] if isinstance(cfg, dict) else cfg
-        )
+    result = f'Journals defined in "{MY_CONFIG_FILEPATH}"\n\n'
+    max_length = min(max(len(k) for k in config["journals"]), 20)
+    result = result + "/n".join(
+        [
+            f""" * {journal:{max_length}} -> "{cfg['journal'] if isinstance(cfg, dict) else cfg}"\n"""
+            for journal, cfg in config["journals"].items()
+        ]
+    )
     return result
