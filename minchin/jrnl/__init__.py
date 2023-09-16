@@ -1,14 +1,25 @@
 #!/usr/bin/env python
-# Copyright (C) 2012-2021 jrnl contributors
+# Copyright (C) 2013-17, 2019-20, 2023 William Minchin
+# Copyright (C) 2019-23 Jonathan Wren & Micah Jerome Ellison
+# Copyright (C) 2012-17, 2019, 2021 Manuel Ebert
+# Copyright (C) 2012-23 other minchin.jrnl (and jrnl) contributors
 # License: https://www.gnu.org/licenses/gpl-3.0.html
 
+# only me past 2020
+
+__title__ = "minchin.jrnl"
+__description__ = "Manage and record your thoughts, in plain text."
+__url__ = "https://github.com/MinchinWeb/minchin.jrnl"
+__author__ = "William Minchin"
+__email__ = "w_minchin@hotmail.com"
+__license__ = "GPL 3"
+__copyright_years__ = "2013-17, 2019-20, 2023"
+__copyright__ = "Copyright (c) {} {} & other contributors".format(__copyright_years__, __author__)
 try:
     from .__version__ import __version__
 except ImportError:
     __version__ = "source"
 __version_codename__ = "Phoenix"
-__title__ = "minchin.jrnl"
-__author__ = "MinchinWeb"
 
 ISSUES_URL = "https://github.com/MinchinWeb/minchin.jrnl/issues"
 
@@ -29,7 +40,7 @@ PLATFORM_DIRS_APP_ENSURE_EXISTS = True
 
 # fmt: off
 LEGACY_VERSIONS = [
-    # as of July 7, 2023
+    # as of September 14, 2023
     # does not include pre-release versions
     # https://pypi.org/project/jrnl/#history
 

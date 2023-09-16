@@ -5,9 +5,9 @@ from string import whitespace
 
 import colorama
 
-from .os_compat import on_windows
+from .os_compat import ON_WINDOWS
 
-if on_windows:
+if ON_WINDOWS:
     colorama.init()
 
 WARNING_COLOR = colorama.Fore.YELLOW

@@ -8,7 +8,7 @@ import textwrap
 
 from .color import ERROR_COLOR
 from .color import RESET_COLOR
-from .os_compat import on_windows
+from .os_compat import ON_WINDOWS
 
 
 def get_text_from_editor(config, template=""):
@@ -20,7 +20,7 @@ def get_text_from_editor(config, template=""):
             f.write(template)
 
     try:
-        subprocess.call(shlex.split(config["editor"], posix=on_windows) + [tmpfile])
+        subprocess.call(shlex.split(config["editor"], posix=ON_WINDOWS) + [tmpfile])
     except Exception as e:
         error_msg = f"""
         {ERROR_COLOR}{str(e)}{RESET_COLOR}
@@ -42,7 +42,7 @@ def get_text_from_editor(config, template=""):
 
 
 def get_text_from_stdin():
-    _how_to_quit = "Ctrl+z and then Enter" if on_windows else "Ctrl+d"
+    _how_to_quit = "Ctrl+z and then Enter" if ON_WINDOWS else "Ctrl+d"
     print(
         f"[Writing Entry; on a blank line, press {_how_to_quit} to finish writing]\n",
         file=sys.stderr,

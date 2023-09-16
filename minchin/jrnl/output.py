@@ -24,10 +24,10 @@ def deprecated_cmd(old_cmd, new_cmd, callback=None, **kwargs):
 
 
 def list_journals(config):
-    from . import install
+    from .install import CONFIG_FILEPATH
 
     """List the journals specified in the configuration file"""
-    result = f"Journals defined in {install.CONFIG_FILE_PATH}\n"
+    result = f"Journals defined in {CONFIG_FILEPATH}\n"
     ml = min(max(len(k) for k in config["journals"]), 20)
     for journal, cfg in config["journals"].items():
         result += " * {:{}} -> {}\n".format(

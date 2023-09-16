@@ -26,12 +26,19 @@ def preconfig_diagnostic(_):
 
 
 def preconfig_version(_):
+    # TODO: include license text as jrnl command
+
     from minchin.jrnl import __title__
     from minchin.jrnl import __version__
+    from minchin.jrnl import __copyright__
+    from minchin.jrnl import __version_codename__
 
-    version_str = f"""{__title__} version {__version__}
+    version_str = f"{__title__}, version {__version__}"
+    if __version_codename__:
+        version_str = version_str + f' "{__version_codename__}"'
+    version_str = version_str + f"""
 
-Copyright (C) 2012-2021 jrnl contributors
+{__copyright__}
 
 This is free software, and you are welcome to redistribute it under certain
 conditions; for details, see: https://www.gnu.org/licenses/gpl-3.0.html"""

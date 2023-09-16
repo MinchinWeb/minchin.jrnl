@@ -18,7 +18,6 @@ from . import ISSUES_URL
 from . import PLATFORM_DIRS_APP_AUTHOR
 from . import PLATFORM_DIRS_APP_ENSURE_EXISTS
 from . import PLATFORM_DIRS_APP_NAME
-from . import PLATFORM_DIRS_APP_OPINION
 from . import PLATFORM_DIRS_APP_ROAMING
 from . import PLATFORM_DIRS_APP_VERSION
 from . import __title__
@@ -27,7 +26,7 @@ from .config import load_config
 from .config import verify_config_colors
 from .exception import UserAbort
 from .os_compat import DEFAULT_WINDOWS_EDITOR
-from .os_compat import on_windows
+from .os_compat import ON_WINDOWS
 from .prompt import yesno
 from .upgrade import is_version_1
 
@@ -44,25 +43,12 @@ CONFIG_DIR = Path(
             appauthor=PLATFORM_DIRS_APP_AUTHOR,
             version=PLATFORM_DIRS_APP_VERSION,
             roaming=PLATFORM_DIRS_APP_ROAMING,
-            opinion=PLATFORM_DIRS_APP_OPINION,
             ensure_exists=PLATFORM_DIRS_APP_ENSURE_EXISTS,
         )
     )
 ) or (USER_HOME / PLATFORM_DIRS_APP_NAME)
 JOURNAL_BASE_DIR = (
-    Path(
-        os.path.expanduser(
-            user_documents_dir(
-                appname=PLATFORM_DIRS_APP_NAME,
-                appauthor=PLATFORM_DIRS_APP_AUTHOR,
-                version=PLATFORM_DIRS_APP_VERSION,
-                roaming=PLATFORM_DIRS_APP_ROAMING,
-                opinion=PLATFORM_DIRS_APP_OPINION,
-                ensure_exists=PLATFORM_DIRS_APP_ENSURE_EXISTS,
-            )
-            or USER_HOME
-        )
-    )
+    Path(os.path.expanduser(user_documents_dir() or USER_HOME))
     / PLATFORM_DIRS_APP_NAME
 )
 CONFIG_FILEPATH = CONFIG_DIR / DEFAULT_CONFIG_NAME
@@ -73,7 +59,7 @@ LEGACY_DEFAULT_CONFIG_NAME = "jrnl.yaml"
 LEGACY_XDG_RESOURCE = "jrnl"
 
 LEGACY_CONFIG_PATH = (
-    xdg.BaseDirectory.save_LEGACY_CONFIG_PATH(LEGACY_XDG_RESOURCE) or USER_HOME
+    xdg.BaseDirectory.save_config_path(LEGACY_XDG_RESOURCE) or USER_HOME
 )
 LEGACY_CONFIG_FILE_PATH = os.path.join(LEGACY_CONFIG_PATH, LEGACY_DEFAULT_CONFIG_NAME)
 LEGACY_CONFIG_FILE_PATH_FALLBACK = os.path.join(USER_HOME, ".jrnl_config")
@@ -85,7 +71,7 @@ LEGACY_JOURNAL_FILE_PATH = os.path.join(LEGACY_JOURNAL_PATH, DEFAULT_JOURNAL_FIL
 default_config = {
     "version": __version__,
     "journals": {"default": DEFAULT_JOURNAL_FILEPATH},
-    "editor": os.getenv("VISUAL") or os.getenv("EDITOR") or (DEFAULT_WINDOWS_EDITOR if on_windows() else ""),
+    "editor": os.getenv("VISUAL") or os.getenv("EDITOR") or (DEFAULT_WINDOWS_EDITOR if ON_WINDOWS else ""),
     "encrypt": False,
     "template": False,
     "default_hour": 9,
@@ -123,6 +109,8 @@ def upgrade_config(config):
 
 def save_config(config):
     config["version"] = __version__
+    print(CONFIG_FILEPATH)
+    print(config)
     with open(CONFIG_FILEPATH, "w") as f:
         yaml.safe_dump(
             config, f, encoding="utf-8", allow_unicode=True, default_flow_style=False
@@ -135,7 +123,7 @@ def load_or_install_jrnl():
     Else, perform various prompts to install jrnl.
     """
 
-    CONFIG_FILEPATH = (
+    MY_CONFIG_FILEPATH = (
         CONFIG_FILEPATH
         if CONFIG_FILEPATH.exists()
         else CONFIG_FILEPATH_FALLBACK
@@ -146,7 +134,7 @@ def load_or_install_jrnl():
         if os.path.exists(LEGACY_CONFIG_FILE_PATH)
         else LEGACY_CONFIG_FILE_PATH_FALLBACK
     )
-    if os.path.exists(LEGACY_CONFIG_PATH) and not CONFIG_FILEPATH.exists():
+    if os.path.exists(LEGACY_CONFIG_PATH) and not MY_CONFIG_FILEPATH.exists():
         from . import upgrade
 
         logging.debug("Reading configuration from file %s", LEGACY_CONFIG_PATH)
@@ -170,7 +158,7 @@ def load_or_install_jrnl():
 
         # assumed to be "Legacy" version
         try:
-            upgrade.upgrade_jrnl_legacy_phoenix(LEGACY_CONFIG_PATH, CONFIG_FILEPATH)
+            upgrade.upgrade_jrnl_legacy_phoenix(LEGACY_CONFIG_PATH, MY_CONFIG_FILEPATH)
         except upgrade.UpgradeValidationException:
             print("Aborting upgrade.", file=sys.stderr)
             print(
@@ -184,9 +172,9 @@ def load_or_install_jrnl():
             print("Exiting.", file=sys.stderr)
             sys.exit(1)
 
-        if CONFIG_FILEPATH.exists():
-            logging.debug("Reading configuration from file %s", CONFIG_FILEPATH)
-            config = load_config(CONFIG_FILEPATH)
+        if MY_CONFIG_FILEPATH.exists():
+            logging.debug("Reading configuration from file %s", MY_CONFIG_FILEPATH)
+            config = load_config(MY_CONFIG_FILEPATH)
 
         upgrade_config(config)
         verify_config_colors(config)
@@ -207,13 +195,13 @@ def install():
 
     # Where to create the journal?
     path_query = (
-        f"Path to your journal file (leave blank for {LEGACY_JOURNAL_FILE_PATH}): "
+        f"Path to your journal file (leave blank for {DEFAULT_JOURNAL_FILEPATH}): "
     )
-    LEGACY_JOURNAL_PATH = os.path.abspath(
-        input(path_query).strip() or LEGACY_JOURNAL_FILE_PATH
+    MY_JOURNAL_PATH = os.path.abspath(
+        input(path_query).strip() or DEFAULT_JOURNAL_FILEPATH
     )
     default_config["journals"][DEFAULT_JOURNAL_KEY] = os.path.expanduser(
-        os.path.expandvars(LEGACY_JOURNAL_PATH)
+        os.path.expandvars(MY_JOURNAL_PATH)
     )
 
     # If the folder doesn't exist, create it

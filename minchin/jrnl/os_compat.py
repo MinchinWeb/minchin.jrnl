@@ -3,7 +3,7 @@
 
 from sys import platform
 
-on_windows = "win32" in platform
+ON_WINDOWS = "win32" in platform
 
 DEFAULT_WINDOWS_EDITOR = "notepad.exe"
 # Default editor on Linux?
