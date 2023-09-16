@@ -2,6 +2,7 @@
 # License: https://www.gnu.org/licenses/gpl-3.0.html
 
 import logging
+import os
 
 
 def deprecated_cmd(old_cmd, new_cmd, callback=None, **kwargs):
@@ -26,8 +27,12 @@ def deprecated_cmd(old_cmd, new_cmd, callback=None, **kwargs):
 def list_journals(config):
     from .install import CONFIG_FILEPATH
 
+    # resolve Microsoft Store version of Python redirects on Windows
+    # https://docs.python.org/3/using/windows.html#windows-store
+    MY_CONFIG_FILEPATH = os.path.realpath(CONFIG_FILEPATH)
+
     """List the journals specified in the configuration file"""
-    result = f"Journals defined in {CONFIG_FILEPATH}\n"
+    result = f"Journals defined in {MY_CONFIG_FILEPATH}\n"
     ml = min(max(len(k) for k in config["journals"]), 20)
     for journal, cfg in config["journals"].items():
         result += " * {:{}} -> {}\n".format(
