@@ -2,21 +2,22 @@ name: Testing
 
 on:
   push:
-    branches: [ develop, release ]
+    branches: [ develop, release, phoenix ]
     paths:
-    - 'jrnl/**'
+    - 'minchin/**'
     - 'features/**'
     - 'tests/**'
-    - 'poetry.lock'
+    - 'requirements.txt'
     - 'pyproject.toml'
   pull_request:
     branches: [ develop ]
     paths:
-    - 'jrnl/**'
+    - 'minchin/**'
     - 'features/**'
     - 'tests/**'
-    - 'poetry.lock'
+    - 'requirements.txt'
     - 'pyproject.toml'
+  workflow_dispatch:
 
 jobs:
   test:
@@ -25,11 +26,22 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [ 3.7, 3.8, 3.9 ]
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-        exclude: # Added for GitHub Actions PR problem 2020-12-19 -- remove later!
-          - os: windows-latest
-            python-version: 3.9
+        python-version: [
+          # pip-tools 7 not supported on Python 3.7; would need to lock version
+          # of pip as well
+          # 3.8,
+          # 3.9,
+          # "3.10",
+          "3.11",
+        ]
+        os: [
+          ubuntu-latest,
+          # macos-latest,
+          # windows-latest,
+        ]
+        # exclude:
+        #   - os: windows-latest
+        #     python-version: 3.11
 
     steps:
     - uses: actions/checkout@v2
@@ -43,30 +55,37 @@ jobs:
       uses: actions/cache@v2
       with:
         path: .venv
-        key: ${{ runner.os }}-${{ hashFiles('poetry.lock') }}-${{ matrix.python-version }}-v2
+        key: ${{ runner.os }}-${{ hashFiles('requirements.txt') }}-${{ matrix.python-version }}-v2
 
+    # use pip-tools and dev-requirements.txt
     - name: Install dependencies
       run: |
-        pip install poetry
-        poetry config --local virtualenvs.in-project true
-        poetry install --remove-untracked
+        python -m pip install pip --upgrade
+        pip install setuptools wheel --upgrade
+        pip install pip-tools
+        pip install .
+        pip-sync requirements.txt
+        pip install black
+        pip install pyflakes
+        pip install pytest
+        pip install behave toml
 
     - name: Code formatting (Black)
       if: success() || failure()
       run: |
-        poetry run black --version
-        poetry run black --check --diff .
+        black --version
+        black --check --diff .
 
     - name: Code Style (PyFlakes)
       if: success() || failure()
       run: |
-        poetry run pyflakes --version
-        poetry run pyflakes jrnl features tests
+        pyflakes --version
+        pyflakes minchin features tests
 
     - name: Test with pytest
       if: success() || failure()
-      run: poetry run pytest --junitxml=reports/pytest/results.xml
+      run: pytest --junitxml=reports/pytest/results.xml
 
     - name: Test with behave
       if: success() || failure()
-      run: poetry run behave --no-skipped --format progress2 --junit --junit-directory reports/behave
+      run: behave --no-skipped --format progress2 --junit --junit-directory reports/behave
