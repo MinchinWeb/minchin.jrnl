@@ -4,6 +4,8 @@
 # Copyright (C) 2012-17, 2019, 2021 Manuel Ebert
 # Copyright (C) 2012-23 other minchin.jrnl (and jrnl) contributors
 # License: https://www.gnu.org/licenses/gpl-3.0.html
+# Code contributed on or before April 18, 2020 and by William Minchin (any
+# date) is duel licensed under the MIT license as well.
 
 # only me past 2020
 
