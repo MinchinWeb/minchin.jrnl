@@ -9,6 +9,7 @@ on:
     - 'tests/**'
     - 'requirements.txt'
     - 'pyproject.toml'
+    - '.github/workflows/testing.yaml'
   pull_request:
     branches: [ develop ]
     paths:
@@ -17,6 +18,7 @@ on:
     - 'tests/**'
     - 'requirements.txt'
     - 'pyproject.toml'
+    - '.github/workflows/testing.yaml'
   workflow_dispatch:
 
 jobs:
@@ -44,32 +46,44 @@ jobs:
         #     python-version: 3.11
 
     steps:
-    - uses: actions/checkout@v2
+    # https://abbbi.github.io/actions/
+    # disables some Ubuntu functionality that we don't need in a "throw away" runtime
+    - uses: abbbi/github-actions-tune@v1
+
+    - uses: actions/checkout@v3
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
+        cache: pip
+        cache-dependency-path: 'requirements.txt'
 
-    - name: poetry cache
-      uses: actions/cache@v2
-      with:
-        path: .venv
-        key: ${{ runner.os }}-${{ hashFiles('requirements.txt') }}-${{ matrix.python-version }}-v2
+    - name: Upgrade Pip, etc
+      run: python -m pip install pip setuptools wheel --upgrade
 
-    # use pip-tools and dev-requirements.txt
-    - name: Install dependencies
+    # - name: Install invoke, etc
+    #   run: pip install invoke minchin.text
+
+    - name: Install pip-tools
+      run: pip install pip-tools
+
+    # - name: Install requirements (via invoke)
+    #   run: invoke upgrade --requirements-file build --verbose
+
+    - name: Install requirements (via pip-sync)
+      run: pip-sync
+
+    # TODO: use pip-tools and dev-requirements.txt
+    - name: Install other dependencies
       run: |
-        python -m pip install pip --upgrade
-        pip install setuptools wheel --upgrade
-        pip install pip-tools
         pip install .
-        pip-sync requirements.txt
         pip install black
         pip install pyflakes
         pip install pytest
         pip install behave toml
 
+    # TODO: split linting from unit tests
     - name: Code formatting (Black)
       if: success() || failure()
       run: |
