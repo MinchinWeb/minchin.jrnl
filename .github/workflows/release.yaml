@@ -52,7 +52,7 @@ jobs:
         python-version: 3.9
 
     - name: Checkout repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         token: ${{ secrets.JRNL_BOT_TOKEN }}
 
@@ -140,7 +140,7 @@ jobs:
         fi
 
     - name: Checkout homebrew repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         token: ${{ secrets.JRNL_BOT_TOKEN }}
         repository: ${{ env.FORMULA_REPO }}
