@@ -50,10 +50,10 @@ venv*/
 
 # export testing directories
 exp/
+reports/
 
 _extras/
 *.sublime-*
 site/
 
 .pytest_cache/
-.venv*/

@@ -20,3 +20,38 @@ vis versa), or if you have both installed on your machine and try and run
 I am also unsure how upgrades to Python will be handled. Please report back
 issues if you upgrade the Windows Store version of Python and loose access to
 your configuration.
+
+
+Behave Tests Don't Pass
+-----------------------
+
+The ``behave`` tests don't currently pass on GitHub Actions, and I'm not sure
+they're ever reliably passed on my local (Windows) machine.
+
+I know at one point ``behave`` had basically been abandoned, but I think the
+project has been revived or a new fork exists. I want to investigate the
+project's current status before spending a lot of time re-working the tests.
+
+
+Tests Stomp on Local Journal
+----------------------------
+
+Running the tests locally seems to stomp on my default journal file.
+
+Test isolation from the local system needs to be investigated.
+
+
+Ongoing GPLv3 --> MIT License Migration
+---------------------------------------
+
+On of the goals of the project is to move from the (current) GPLv3 license back
+to the original MIT license.
+
+The license change (from MIT --> GPLv3) was done with
+`Pull Request #918 <https://github.com/jrnl-org/jrnl/pull/918>`_, dated April
+18, 2020. Therefore, any code before that and any pull requests submitted
+before that can be assumed to be available under the MIT license. Code
+contributed or changed after that date will need to be replaced, unless it has
+been written by me.
+
+This work is ongoing.
