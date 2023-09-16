@@ -58,7 +58,7 @@ def is_config_json(config_path):
     For v1 of jrnl, configuration was kept in a JSON file. Later versions
     (starting with v2) store the configuration in YAML.
     """
-    
+
     with open(config_path, "r", encoding="utf-8") as f:
         config_file = f.read()
     return config_file.strip().startswith("{")

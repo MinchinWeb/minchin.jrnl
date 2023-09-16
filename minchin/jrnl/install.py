@@ -49,8 +49,7 @@ CONFIG_DIR = Path(
 ) or (USER_HOME / PLATFORM_DIRS_APP_NAME)
 
 JOURNAL_BASE_DIR = (
-    Path(os.path.expanduser(user_documents_dir() or USER_HOME))
-    / PLATFORM_DIRS_APP_NAME
+    Path(os.path.expanduser(user_documents_dir() or USER_HOME)) / PLATFORM_DIRS_APP_NAME
 )
 CONFIG_FILEPATH = CONFIG_DIR / DEFAULT_CONFIG_NAME
 CONFIG_FILEPATH_FALLBACK = USER_HOME / ".minchin.jrnl.config"
@@ -72,7 +71,9 @@ LEGACY_JOURNAL_FILE_PATH = os.path.join(LEGACY_JOURNAL_PATH, DEFAULT_JOURNAL_FIL
 default_config = {
     "version": __version__,
     "journals": {"default": DEFAULT_JOURNAL_FILEPATH},
-    "editor": os.getenv("VISUAL") or os.getenv("EDITOR") or (DEFAULT_WINDOWS_EDITOR if ON_WINDOWS else ""),
+    "editor": os.getenv("VISUAL")
+    or os.getenv("EDITOR")
+    or (DEFAULT_WINDOWS_EDITOR if ON_WINDOWS else ""),
     "encrypt": False,
     "template": False,
     "default_hour": 9,
@@ -127,9 +128,7 @@ def load_or_install_jrnl():
     """
 
     MY_CONFIG_FILEPATH = (
-        CONFIG_FILEPATH
-        if CONFIG_FILEPATH.exists()
-        else CONFIG_FILEPATH_FALLBACK
+        CONFIG_FILEPATH if CONFIG_FILEPATH.exists() else CONFIG_FILEPATH_FALLBACK
     )
 
     LEGACY_CONFIG_PATH = (
@@ -149,8 +148,6 @@ def load_or_install_jrnl():
 
     elif os.path.exists(LEGACY_CONFIG_PATH) and not MY_CONFIG_FILEPATH.exists():
         from . import upgrade
-
-
 
         logging.debug("Reading configuration from file %s", LEGACY_CONFIG_PATH)
         config = load_config(LEGACY_CONFIG_PATH)
@@ -195,7 +192,7 @@ def load_or_install_jrnl():
         verify_config_colors(config)
 
     else:
-        logging.debug("Configuration file not found, installing minchin.jrnl...")
+        logging.debug(f"Configuration file not found, installing {__title__}...")
         try:
             config = install()
         except KeyboardInterrupt:
