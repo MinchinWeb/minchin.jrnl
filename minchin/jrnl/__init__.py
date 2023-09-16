@@ -14,7 +14,9 @@ __author__ = "William Minchin"
 __email__ = "w_minchin@hotmail.com"
 __license__ = "GPL 3"
 __copyright_years__ = "2013-17, 2019-20, 2023"
-__copyright__ = "Copyright (c) {} {} & other contributors".format(__copyright_years__, __author__)
+__copyright__ = "Copyright (c) {} {} & other contributors".format(
+    __copyright_years__, __author__
+)
 try:
     from .__version__ import __version__
 except ImportError:
@@ -29,7 +31,7 @@ PLATFORM_DIRS_APP_AUTHOR = "minchin"
 # Useful if you want multiple version of the application to be able to run
 # side by side.
 PLATFORM_DIRS_APP_VERSION = None
-# Whether to use the roaming appdata directory on Windows. 
+# Whether to use the roaming appdata directory on Windows.
 PLATFORM_DIRS_APP_ROAMING = False
 # A flag to indicating to use opinionated values.
 PLATFORM_DIRS_APP_OPINION = True

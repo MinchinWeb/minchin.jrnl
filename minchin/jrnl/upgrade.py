@@ -242,9 +242,12 @@ and update the configuration to match).
             raise KeyboardInterrupt
     except KeyboardInterrupt:
         raise UserAbort("minchin.jrnl NOT upgraded, exiting.")
-    
+
     print("\nCopying configuration...", file=sys.stderr)
 
     shutil.copy(old_config_path, new_config_path)
 
-    print('\nWe\'re all done here and you can start enjoying minchin.jrnl "Phoenix"!', file=sys.stderr)
+    print(
+        '\nWe\'re all done here and you can start enjoying minchin.jrnl "Phoenix"!',
+        file=sys.stderr,
+    )

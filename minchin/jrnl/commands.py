@@ -36,12 +36,15 @@ def preconfig_version(_):
     version_str = f"{__title__}, version {__version__}"
     if __version_codename__:
         version_str = version_str + f' "{__version_codename__}"'
-    version_str = version_str + f"""
+    version_str = (
+        version_str
+        + f"""
 
 {__copyright__}
 
 This is free software, and you are welcome to redistribute it under certain
 conditions; for details, see: https://www.gnu.org/licenses/gpl-3.0.html"""
+    )
 
     print(version_str)
 
@@ -94,7 +97,7 @@ def postconfig_encrypt(args, config, original_config, **kwargs):
 
 
 def postconfig_decrypt(args, config, original_config, **kwargs):
-    """ Decrypts into new file. If filename is not set, we encrypt the journal file itself. """
+    """Decrypts into new file. If filename is not set, we encrypt the journal file itself."""
     from .Journal import PlainJournal
     from .Journal import open_journal
     from .config import update_config
