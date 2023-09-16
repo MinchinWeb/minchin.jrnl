@@ -1,0 +1,4 @@
+# these are the requirments to push out a release
+
+invoke
+minchin.releaser

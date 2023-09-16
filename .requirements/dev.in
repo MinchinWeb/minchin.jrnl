@@ -1,0 +1,16 @@
+# these are requirements needed for development; it does NOT include the
+# requirments to push a release.
+# c.f. release.in
+
+# meta tools
+pip-tools >= 7
+invoke
+
+# lint
+black >= 23.9
+pyflakes >= 2.2.0
+
+# testing
+behave >= 1.2
+toml >= 0.10
+pytest >= 6.2

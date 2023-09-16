@@ -10,6 +10,12 @@ exclude = ["tests"]
 version = {attr = "minchin.jrnl.__version__"}
 # description = {attr = "minchin.jrnl.__description__"}  # must be pulled from file
 readme = {file = ["README.md"], content-type = "text/markdown"}
+dependencies = {file = [".requirements/base.in"]}
+
+[tool.setuptools.dynamic.optional-dependencies]
+dev = {file = [".requirements/dev.in"] }
+release = {file = [".requirements/release.in"] }
+
 
 [project]
 name = "minchin.jrnl"
@@ -18,6 +24,8 @@ dynamic = [
     "version",
     # "description",
     "readme",
+    "dependencies",
+    "optional-dependencies",
 ]
 authors = [
     {name = "Manuel Ebert", email = "manuel@1450.me" },
@@ -29,22 +37,6 @@ maintainers = [
     {name = "William Minchin", email="w_minchin@hotmail.com" },
 ]
 # requires-python = ">=3.6"
-dependencies = [
-    "ansiwrap >= 0.8.4",
-    "asteval >= 0.9",
-    "colorama >= 0.4" ,       # https://github.com/tartley/colorama/blob/master/CHANGELOG.rst
-    "cryptography >= 3.0",    # https://cryptography.io/en/latest/api-stability.html
-    "keyring >= 21.0",        # https://github.com/jaraco/keyring#integration
-    "parsedatetime >= 2.6",
-    "python-dateutil >= 2.8",  # https://github.com/dateutil/dateutil/blob/master/RELEASING
-    "pyxdg >= 0.27.0",
-    "pyyaml >= 5.1",
-    "platformdirs >= 3",
-
-    # dayone-only dependencies
-    "pytz >= 2020",           # https://pythonhosted.org/pytz/#issues-limitations
-    "tzlocal",
-]
 # keywords
 license = {text = "GPLv3"}
 classifiers = [
@@ -53,17 +45,6 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "behave >= 1.2",
-    "mkdocs >= 1.0",
-    "black >= 23.9",
-    "toml >= 0.10",
-    "pyflakes >= 2.2.0",
-    "pytest >= 6.2",
-    "yq >= 2.11",
-    "pip-tools >= 7",
-]
 
 [project.scripts]
 jrnl = "minchin.jrnl.cli:cli"
