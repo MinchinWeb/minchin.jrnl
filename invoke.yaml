@@ -1,0 +1,16 @@
+# This file is used in conjunction with `tasks.py` by Invoke
+
+releaser:
+  # https://github.com/MinchinWeb/minchin.releaser
+  module_name: minchin.jrnl
+  here: .
+  docs: .
+  test: None
+  source: minchin
+  changelog: CHANGELOG.rst
+  version: minchin\jrnl\__versin__.py
+  test_command: None
+  version_bump: None
+  extra_packages:
+    test:
+    pypi:
