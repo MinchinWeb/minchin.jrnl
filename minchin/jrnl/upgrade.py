@@ -4,17 +4,13 @@
 # date) is duel licensed under the MIT license as well.
 
 import os
-import sys
 import shutil
+import sys
 
-from . import Journal
-from . import __version__, __version_codename__
+from . import Journal, __version__, __version_codename__
 from .EncryptedJournal import EncryptedJournal
-from .config import is_config_json
-from .config import load_config
-from .config import scope_config
-from .exception import UpgradeValidationException
-from .exception import UserAbort
+from .config import is_config_json, load_config, scope_config
+from .exception import UpgradeValidationException, UserAbort
 from .prompt import yesno
 
 

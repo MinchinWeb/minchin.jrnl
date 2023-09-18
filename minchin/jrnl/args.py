@@ -7,17 +7,17 @@ import argparse
 import re
 import textwrap
 
-from .commands import postconfig_decrypt
-from .commands import postconfig_encrypt
-from .commands import postconfig_import
-from .commands import postconfig_list
-from .commands import preconfig_diagnostic
-from .commands import preconfig_version
-from .output import deprecated_cmd
-from .plugins import EXPORT_FORMATS
-from .plugins import IMPORT_FORMATS
-from .plugins import util
 from . import __url__
+from .commands import (
+    postconfig_decrypt,
+    postconfig_encrypt,
+    postconfig_import,
+    postconfig_list,
+    preconfig_diagnostic,
+    preconfig_version,
+)
+from .output import deprecated_cmd
+from .plugins import EXPORT_FORMATS, IMPORT_FORMATS, util
 
 
 class WrappingFormatter(argparse.RawTextHelpFormatter):

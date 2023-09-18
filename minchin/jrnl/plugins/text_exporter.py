@@ -7,8 +7,7 @@ import os
 import re
 import unicodedata
 
-from ..color import ERROR_COLOR
-from ..color import RESET_COLOR
+from ..color import ERROR_COLOR, RESET_COLOR
 
 
 class TextExporter:

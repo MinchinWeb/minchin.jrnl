@@ -6,15 +6,11 @@
 import logging
 import sys
 
-from . import install
-from . import plugins
+from . import install, plugins
 from .Journal import open_journal
-from .color import ERROR_COLOR
-from .color import RESET_COLOR
-from .config import get_journal_name
-from .config import scope_config
-from .editor import get_text_from_editor
-from .editor import get_text_from_stdin
+from .color import ERROR_COLOR, RESET_COLOR
+from .config import get_journal_name, scope_config
+from .editor import get_text_from_editor, get_text_from_stdin
 from .exception import UserAbort
 
 

@@ -11,24 +11,23 @@ import os
 from pathlib import Path
 import sys
 
-from platformdirs import user_config_dir
-from platformdirs import user_documents_dir
+from platformdirs import user_config_dir, user_documents_dir
 import xdg.BaseDirectory  # for Legacy file locations
 import yaml
 
-from . import ISSUES_URL
-from . import PLATFORM_DIRS_APP_AUTHOR
-from . import PLATFORM_DIRS_APP_ENSURE_EXISTS
-from . import PLATFORM_DIRS_APP_NAME
-from . import PLATFORM_DIRS_APP_ROAMING
-from . import PLATFORM_DIRS_APP_VERSION
-from . import __title__
-from . import __version__
-from .config import load_config
-from .config import verify_config_colors
+from . import (
+    ISSUES_URL,
+    PLATFORM_DIRS_APP_AUTHOR,
+    PLATFORM_DIRS_APP_ENSURE_EXISTS,
+    PLATFORM_DIRS_APP_NAME,
+    PLATFORM_DIRS_APP_ROAMING,
+    PLATFORM_DIRS_APP_VERSION,
+    __title__,
+    __version__,
+)
+from .config import load_config, verify_config_colors
 from .exception import UserAbort
-from .os_compat import DEFAULT_WINDOWS_EDITOR
-from .os_compat import ON_WINDOWS
+from .os_compat import DEFAULT_WINDOWS_EDITOR, ON_WINDOWS
 from .prompt import yesno
 from .upgrade import is_version_1
 

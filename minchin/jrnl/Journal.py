@@ -11,8 +11,7 @@ import os
 import re
 import sys
 
-from . import Entry
-from . import time
+from . import Entry, time
 from .prompt import yesno
 
 

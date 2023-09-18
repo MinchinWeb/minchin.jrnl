@@ -12,17 +12,12 @@ import shlex
 import time
 from unittest.mock import patch
 
-from behave import given
-from behave import then
-from behave import when
+from behave import given, then, when
 import keyring
 import toml
 import yaml
 
-from minchin.jrnl import Journal
-from minchin.jrnl import __version__
-from minchin.jrnl import install
-from minchin.jrnl import plugins
+from minchin.jrnl import Journal, __version__, install, plugins
 from minchin.jrnl.cli import cli
 from minchin.jrnl.config import load_config
 from minchin.jrnl.os_compat import ON_WINDOWS

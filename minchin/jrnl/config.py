@@ -4,8 +4,7 @@ import sys
 import colorama
 import yaml
 
-from .color import ERROR_COLOR
-from .color import RESET_COLOR
+from .color import ERROR_COLOR, RESET_COLOR
 from .output import list_journals
 
 

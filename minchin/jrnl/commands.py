@@ -28,10 +28,7 @@ def preconfig_diagnostic(_):
 def preconfig_version(_):
     # TODO: include license text as jrnl command
 
-    from minchin.jrnl import __title__
-    from minchin.jrnl import __version__
-    from minchin.jrnl import __copyright__
-    from minchin.jrnl import __version_codename__
+    from minchin.jrnl import __copyright__, __title__, __version__, __version_codename__
 
     version_str = f"{__title__}, version {__version__}"
     if __version_codename__:
@@ -98,8 +95,7 @@ def postconfig_encrypt(args, config, original_config, **kwargs):
 
 def postconfig_decrypt(args, config, original_config, **kwargs):
     """Decrypts into new file. If filename is not set, we encrypt the journal file itself."""
-    from .Journal import PlainJournal
-    from .Journal import open_journal
+    from .Journal import PlainJournal, open_journal
     from .config import update_config
     from .install import save_config
 

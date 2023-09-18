@@ -5,13 +5,12 @@
 
 import json
 import os
-import shutil
 import random
+import shutil
 import string
 from xml.etree import ElementTree
 
-from behave import given
-from behave import then
+from behave import given, then
 
 
 @then("the output should be parsable as json")
