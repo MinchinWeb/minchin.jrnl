@@ -48,6 +48,7 @@ classifiers = [
 
 [project.scripts]
 jrnl = "minchin.jrnl.cli:cli"
+"minchin.jrnl" = "minchin.jrnl.cli:cli"
 
 [project.urls]
 Homepage = "https://github.com/MinchinWeb/minchin.jrnl"

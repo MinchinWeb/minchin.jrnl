@@ -36,9 +36,9 @@ def list_journals(config):
     """List the journals specified in the configuration file"""
     result = f'Journals defined in "{MY_CONFIG_FILEPATH}"\n\n'
     max_length = min(max(len(k) for k in config["journals"]), 20)
-    result = result + "/n".join(
+    result = result + "\n".join(
         [
-            f""" * {journal:{max_length}} -> "{cfg['journal'] if isinstance(cfg, dict) else cfg}"\n"""
+            f''' * {journal:{max_length}} -> "{cfg['journal'] if isinstance(cfg, dict) else cfg}"'''
             for journal, cfg in config["journals"].items()
         ]
     )

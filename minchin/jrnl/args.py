@@ -17,6 +17,7 @@ from .output import deprecated_cmd
 from .plugins import EXPORT_FORMATS
 from .plugins import IMPORT_FORMATS
 from .plugins import util
+from . import __url__
 
 
 class WrappingFormatter(argparse.RawTextHelpFormatter):
@@ -40,9 +41,9 @@ def parse_args(args=[]):
         add_help=False,
         description="Collect your thoughts and notes without leaving the command line",
         epilog=textwrap.dedent(
-            """
+            f"""
         Thank you to all of our contributors! Come see the whole list of code and
-        financial contributors at https://github.com/jrnl-org/jrnl. And special
+        financial contributors at {__url__}. And special
         thanks to Bad Lip Reading for the Yoda joke in the Writing section above."""
         ),
     )
