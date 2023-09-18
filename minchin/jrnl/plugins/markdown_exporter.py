@@ -7,9 +7,7 @@ import os
 import re
 import sys
 
-from ..color import RESET_COLOR
-from ..color import WARNING_COLOR
-
+from ..color import RESET_COLOR, WARNING_COLOR
 from .text_exporter import TextExporter
 
 

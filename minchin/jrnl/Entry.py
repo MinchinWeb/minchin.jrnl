@@ -10,8 +10,7 @@ import re
 
 import ansiwrap
 
-from .color import colorize
-from .color import highlight_tags_with_background_color
+from .color import colorize, highlight_tags_with_background_color
 
 
 class Entry:

@@ -6,8 +6,7 @@ import sys
 import tempfile
 import textwrap
 
-from .color import ERROR_COLOR
-from .color import RESET_COLOR
+from .color import ERROR_COLOR, RESET_COLOR
 from .os_compat import ON_WINDOWS
 
 
