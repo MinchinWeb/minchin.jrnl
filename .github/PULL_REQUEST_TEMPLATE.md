@@ -12,7 +12,7 @@ Here are some key points to include in your description:
 
 ### Checklist
 
-- [ ] I have read the [contributing doc](https://github.com/jrnl-org/jrnl/blob/develop/CONTRIBUTING.md).
+- [ ] I have read the [contributing doc](https://github.com/MinchinWeb/minchin.jrnl/blob/pheonix/CONTRIBUTING.md).
 - [ ] I have included a link to the relevant issue number.
 - [ ] I have tested this code locally.
 - [ ] I have checked to ensure there aren't other open [pull requests](../pulls)
@@ -21,6 +21,6 @@ Here are some key points to include in your description:
 - [ ] All tests pass.
 <!--
 NOTE: Your PR may not be reviewed if there are any failing tests. You can run
-tests locally with `make test` (see the contributing doc if you need help with
-`make`), or use our automated tests after you submit your PR.
+tests locally with `pytest` and `behave` or use our automated tests after you
+submit your PR.
 -->
