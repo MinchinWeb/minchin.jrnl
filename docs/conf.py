@@ -17,21 +17,34 @@ copyright = "{} {} & other contributors".format(
 
 author = minchin.jrnl.__author__
 
+# The version info for the project you're documenting, acts as replacement for
+# |version| and |release|, also used in various other places throughout the
+# built documents.
+#
+# The full version, including alpha/beta/rc tags.
 release = minchin.jrnl.__version__
-p = re.compile("\d+\.\d+")
-versionmatch = p.match(release)
-version = versionmatch.group()
+# The short X.Y version.
+_p = re.compile("\d+\.\d+")
+_versionmatch = _p.match(release)
+version = _versionmatch.group()
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
+# location of "master" Table of Contents, as added to the sidebar
+master_doc = "contents"
+
 extensions = [
     "sphinx.ext.githubpages",  # produces .nojekyll file
-    # 'releases',
+    "releases",
 ]
 
 templates_path = ["_templates"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+]
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -47,7 +60,7 @@ releases_github_path = "minchinweb/minchin.jrnl"
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = "favicon.ico"
+html_favicon = "_static/favicon.ico"
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -58,3 +71,11 @@ html_show_sphinx = False
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = minchin.jrnl.__title__ + "doc"
+
+
+# for releases
+# releases_release_uri =
+# releases_issue_uri =
+releases_github_path = "MinchinWeb/minchin.jrnl"
+# see debug output while building your docs
+# releases_debug = True

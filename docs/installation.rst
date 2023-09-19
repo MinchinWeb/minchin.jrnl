@@ -6,11 +6,13 @@ to use pip. However, this is generally not advised (due to potentially causing
 issue with your "system" Python), and so better is probably to use ``pipx``:
 
 .. code-block:: sh
+
     pipx install minchin.jrnl
 
 Upgrades can be done similarly:
 
 .. code-block:: sh
+
     pipx upgrade minchin.jrnl
 
 (c.f. `Installing pipx <https://pypa.github.io/pipx/installation/>`_.)
@@ -26,6 +28,7 @@ like this; this will clone the git repo, set up and activate a virtual
 environment, and install ``minchin.jrnl`` in editible mode:
 
 .. code-block:: sh
+
     cd <coding/base/directory>
     git clone https://github.com/MinchinWeb/minchin.jrnl
     cd minchin.jrnl

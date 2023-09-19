@@ -9,7 +9,7 @@ When using the Windows Store version of Python, several filepaths, include the
 ``C:\Users\<user>\AppData\Local`` becomes (something like)
 ``C:\Users\<user>\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\Local\``.
 This is common to all Windows Store applications, and is part of their security
-model. See `https://docs.python.org/3/using/windows.html#windows-store`_ for
+model. See `<https://docs.python.org/3/using/windows.html#windows-store>`_ for
 more details.
 
 This may become an issue if you change how Python is installed on your machine
@@ -55,3 +55,15 @@ contributed or changed after that date will need to be replaced, unless it has
 been written by me.
 
 This work is ongoing.
+
+
+Invoke "Eats" Colour Output
+---------------------------
+
+Running command line programs through *invoke* means that colours in output and
+emojis are "eaten".
+
+This may be a Windows-only issue.
+
+I'm not sure this can be fixed directly. If needed, the commands could be
+lifted from `tasks.py` file and run directly to get the coloured output.

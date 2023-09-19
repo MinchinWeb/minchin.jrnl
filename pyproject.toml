@@ -15,6 +15,7 @@ dependencies = {file = [".requirements/base.in"]}
 [tool.setuptools.dynamic.optional-dependencies]
 dev = {file = [".requirements/dev.in"] }
 release = {file = [".requirements/release.in"] }
+docs = {file = [".requirements/docs.in"] }
 
 
 [project]
