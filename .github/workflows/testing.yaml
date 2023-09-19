@@ -72,7 +72,7 @@ jobs:
     #   run: invoke upgrade --requirements-file build --verbose
 
     - name: Install requirements (via pip-sync)
-      run: pip-sync
+      run: pip-sync .requirements/base.txt
 
     # TODO: use pip-tools and dev-requirements.txt
     - name: Install other dependencies
