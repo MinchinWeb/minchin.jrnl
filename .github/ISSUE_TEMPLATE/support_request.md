@@ -1,6 +1,6 @@
 ---
 name: Support Request
-about: Get help with jrnl
+about: Get help with minchin.jrnl
 title: ''
 labels: ":new:, support"
 assignees: ''

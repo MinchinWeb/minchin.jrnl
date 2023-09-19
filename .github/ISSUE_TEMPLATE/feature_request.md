@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for jrnl
+about: Suggest an idea for minchin.jrnl
 title: ''
 labels: ":new:, enhancement"
 assignees: ''

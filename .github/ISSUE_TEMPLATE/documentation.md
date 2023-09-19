@@ -1,6 +1,6 @@
 ---
 name: Documentation Change
-about: Request or report any updates to our documentation (https://jrnl.sh)
+about: Request or report any updates to our documentation
 title: ''
 labels: ":new:, Documentation"
 assignees: ''
@@ -15,10 +15,10 @@ Please fill out the points below, as it will make our process much easier.
 
 ### Affected Page(s)
 <!--
-Please tell us which page, or pages, from the documentation site (https://jrnl.sh) are
+Please tell us which page, or pages, from the documentation site are
 affected in this issue
 -->
-  - <!-- example: https://jrnl.sh/en/stable/overview -->
+  - <!-- example url -->
 
 ### What Could Be Better?
 <!--

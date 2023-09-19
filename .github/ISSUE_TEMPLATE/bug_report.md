@@ -16,7 +16,7 @@ Please fill out the points below, as it will make our process much easier.
 <!-- Please tell us about your environment -->
 ### Environment
   - `jrnl --diagnostic` output: <!-- Run the command and paste the output here -->
-  - Install method: <!-- How did you install jrnl? (pipx, brew, etc) -->
+  - Install method: <!-- How did you install minchin.jrnl? (pipx, pip, etc) -->
 
 ### Current Behavior
 <!--
