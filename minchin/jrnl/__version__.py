@@ -13,4 +13,4 @@ Certain version numbers will be skipped, to try and avoid confusion with
 jrnl-org/jrnl ("legacy") releases.
 """
 
-__version__ = "2.6.1"
+__version__ = "7.0.0"

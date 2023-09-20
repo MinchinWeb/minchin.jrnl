@@ -1,4 +1,4 @@
 # these are the requirments to push out a release
 
 invoke
-minchin.releaser
+minchin.releaser >= 0.9.0

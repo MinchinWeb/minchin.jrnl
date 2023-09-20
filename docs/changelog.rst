@@ -1,10 +1,10 @@
-Changelog for *minchin.jrnl*
-============================
+Changelog for *minchin.jrnl* v. |release|
+=========================================
 
 *This starts with v7. Future plans are to add the changelog of previous
 versions at a later date to this format.*
 
-- :release:`7.0.0 <2023-9-18>`
+- :release:`7.0.0 <2023-9-19>`
 - :support:`-` add GitHub dependabot congifuration (to keep GitHub
   actions up to date).
 - :support:`-` switch from *poetry* to *setuptools* and *pip-tools*
@@ -15,9 +15,10 @@ versions at a later date to this format.*
   to *invoke* (incomplete). Also, remove ``Makefile``.
 - :support:`-` move release process from GitHub action to
   *minchin.releaser*.
-- :support:`-` start reworking documentation, moving them from
-  *MKDocs* to *Sphinx* (incomplete). Also, remove automatic generation of the
-  Changelog through GitHub Actions.
+- :support:`-` start reworking documentation, moving them from *MKDocs* to
+  *Sphinx* (incomplete). Also, remove automatic generation of the Changelog
+  through GitHub Actions. *Sphinx* documentation is live online at
+  `<http://minchin.ca/minchin.jrnl/>`_.
 - :support:`-` update Code of Conduct, Contributing, Readme.
 - :support:`-` change *isort* profile.
 - :support:`-` remove (user unfriendly) stale bot (used on GitHub
@@ -31,7 +32,8 @@ versions at a later date to this format.*
 - :bug:`- major` update project URLs throughout.
 
 - :release:`2.6.0 <2020-12-19>`
-- :support:`-` *This is the base release from ``jnrl-org/jrnl``` that I'm using.*
+- :support:`-` *This is the base release from* ``jnrl-org/jrnl`` *that I'm
+  using.*
 
 
 The changelog is managed with `Releases`_.

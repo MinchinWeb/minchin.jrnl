@@ -4,8 +4,7 @@
 </a>
 </p>-->
 
-*minchin.jrnl*
-==============
+# *minchin.jrnl*
 
  [![Testing](https://github.com/MinchinWeb/minchin.jrnl/workflows/Testing/badge.svg)](https://github.com/MinchinWeb/minchin.jrnl/actions?query=workflow%3ATesting)
  [![Downloads](https://pepy.tech/badge/minchin.jrnl)](https://pepy.tech/project/minchin.jrnl)
@@ -30,7 +29,7 @@ jrnl yesterday: Called in sick. Used the time to clean the house and write my
 book.
 ```
 
-`yesterday:` is  interpreted by `minchin.jrnl` as a timestamp. Everything until
+`yesterday:` is interpreted by `minchin.jrnl` as a timestamp. Everything until
 the first sentence ending (either `.`, `?`, or `!`) is interpreted as the
 title, and the rest as the body. In your journal file, the result will look
 like this:
@@ -39,7 +38,7 @@ like this:
     Used the time to clean the house and write my book.
 
 If you just call `jrnl`, you will be prompted to compose your entry - but you
-can also configure _minchin.jrnl_ to use your external editor.
+can also configure *minchin.jrnl* to use your external editor.
 
 <!--For more information, please read the
 [documentation](https://jrnl.sh).-->
