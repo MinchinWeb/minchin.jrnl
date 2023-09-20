@@ -8,9 +8,20 @@ releaser:
   test: None
   source: minchin
   changelog: CHANGELOG.rst
-  version: minchin\jrnl\__versin__.py
+  version: minchin\jrnl\__version__.py
   test_command: None
   version_bump: None
   extra_packages:
     test:
+      - ansiwrap
+      - asteval
+      - cffi
+      - keyring
+      - parsedatetime
+      - platformdirs
+      - pytz
+      - pyxdg
+      - pyyaml
+      - tzlocal
+      - wheel
     pypi:
