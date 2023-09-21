@@ -11,18 +11,45 @@ run.
 Also, please note that all (non-builtin) imports should be scoped to each function to
 avoid any possible overhead for these standalone commands.
 """
+
+from itertools import chain
 import platform
 import sys
 
 
 def preconfig_diagnostic(_):
     from minchin.jrnl import __version__
+    from minchin.jrnl.plugins.meta import (
+        IMPORT_FORMATS,
+        EXPORT_FORMATS,
+        get_exporter,
+        get_importer,
+    )
 
     print(
         f"minchin.jrnl: {__version__}\n"
         f"Python: {sys.version}\n"
         f"OS: {platform.system()} {platform.release()}"
     )
+
+    plugin_name_length = max(
+        [len(str(x)) for x in chain(IMPORT_FORMATS, EXPORT_FORMATS)]
+    )
+
+    print()
+    print("Active Plugins:")
+    print("    Importers:")
+    for importer in IMPORT_FORMATS:
+        importer_class = get_importer(importer)
+        print(f"        {importer:{plugin_name_length}} : ", end="")
+        print(f"{importer_class.version} from ", end="")
+        print(f"{importer_class().class_path()}")
+    print("    Exporters:")
+    for exporter in EXPORT_FORMATS:
+        exporter_class = get_exporter(exporter)
+        print(f"        {exporter:{plugin_name_length}} : ", end="")
+        print(f"{exporter_class.version} from ", end="")
+        print(f"{exporter_class().class_path()}")
 
 
 def preconfig_version(_):

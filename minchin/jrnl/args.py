@@ -17,7 +17,8 @@ from .commands import (
     preconfig_version,
 )
 from .output import deprecated_cmd
-from .plugins import EXPORT_FORMATS, IMPORT_FORMATS, util
+from .plugins.meta import EXPORT_FORMATS, IMPORT_FORMATS
+from .plugins import util
 
 
 class WrappingFormatter(argparse.RawTextHelpFormatter):

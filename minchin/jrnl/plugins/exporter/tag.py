@@ -3,15 +3,18 @@
 # Copyright (C) 2012-2021 jrnl contributors
 # License: https://www.gnu.org/licenses/gpl-3.0.html
 
-from .text_exporter import TextExporter
-from .util import get_tags_count
+from minchin.jrnl.plugins.exporter.text import Exporter as TextExporter
+from minchin.jrnl.plugins.util import get_tags_count
+
+from minchin.jrnl import __version__
 
 
-class TagExporter(TextExporter):
+class Exporter(TextExporter):
     """This Exporter can lists the tags for entries and journals, exported as a plain text file."""
 
     names = ["tags"]
     extension = "tags"
+    version = __version__
 
     @classmethod
     def export_entry(cls, entry):

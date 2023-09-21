@@ -7,15 +7,16 @@ import os
 import re
 import sys
 
-from ..color import ERROR_COLOR, RESET_COLOR, WARNING_COLOR
-from .text_exporter import TextExporter
+from minchin.jrnl.color import ERROR_COLOR, RESET_COLOR, WARNING_COLOR
+from minchin.jrnl.plugins.exporter.text import Exporter as TextExporter
+from minchin.jrnl import __version__
 
-
-class YAMLExporter(TextExporter):
+class Exporter(TextExporter):
     """This Exporter can convert entries and journals into Markdown formatted text with YAML front matter."""
 
     names = ["yaml"]
     extension = "md"
+    version = __version__
 
     @classmethod
     def export_entry(cls, entry, to_multifile=True):

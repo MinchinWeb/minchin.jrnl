@@ -7,14 +7,20 @@ import os
 import re
 import unicodedata
 
-from ..color import ERROR_COLOR, RESET_COLOR
+from minchin.jrnl import __version__
+from minchin.jrnl.color import ERROR_COLOR, RESET_COLOR
 
 
-class TextExporter:
+class Exporter:
     """This Exporter can convert entries and journals into text files."""
 
     names = ["text", "txt"]
     extension = "txt"
+    version = __version__
+
+    @classmethod
+    def class_path(cls):
+        return cls.__module__
 
     @classmethod
     def export_entry(cls, entry):

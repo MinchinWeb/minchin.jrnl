@@ -13,6 +13,7 @@ Table Of Contents
    upgrades
    requirements
 
+   plugins
    class-*
    function-*
 

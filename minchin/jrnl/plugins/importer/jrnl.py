@@ -5,18 +5,25 @@
 
 import sys
 
+from minchin.jrnl import __version__
 
-class JRNLImporter:
+
+class Importer:
     """This plugin imports entries from other jrnl files."""
 
     names = ["jrnl"]
-
+    version = __version__
+    
+    @classmethod
+    def class_path(cls):
+        return cls.__module__
+    
     @staticmethod
-    def import_(journal, input=None):
+    def import_(journal, my_input=None):
         """Imports from an existing file if input is specified, and
         standard input otherwise."""
         old_cnt = len(journal.entries)
-        if input:
+        if my_input:
             with open(input, "r", encoding="utf-8") as f:
                 other_journal_txt = f.read()
         else:

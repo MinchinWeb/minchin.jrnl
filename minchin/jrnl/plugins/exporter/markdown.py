@@ -7,15 +7,16 @@ import os
 import re
 import sys
 
-from ..color import RESET_COLOR, WARNING_COLOR
-from .text_exporter import TextExporter
+from minchin.jrnl.color import RESET_COLOR, WARNING_COLOR
+from minchin.jrnl.plugins.exporter.text import Exporter as TextExporter
+from minchin.jrnl import __version__
 
-
-class MarkdownExporter(TextExporter):
+class Exporter(TextExporter):
     """This Exporter can convert entries and journals into Markdown."""
 
     names = ["md", "markdown"]
     extension = "md"
+    version = __version__
 
     @classmethod
     def export_entry(cls, entry, to_multifile=True):
