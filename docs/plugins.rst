@@ -1,5 +1,5 @@
 Extending minchin.jrnl
-==============
+======================
 
 *minchin.jrnl* can be extended with custom importers and exporters.
 
@@ -50,7 +50,7 @@ functions:
       are of particular importance.
    -  **tags** (list of strings): the tags attached to an entry. Each tag
       includes the pre-facing “tag symbol”.
-   -  **\__init__(journal, date=None, text=““, starred=False)**: contractor
+   -  **\__init__(journal, date=None, text="", starred=False)**: contractor
       method
 
       -  **journal** (*minchin.jrnl.Journal.Journal*): a link to an existing
@@ -75,12 +75,8 @@ An importer takes the source data, turns it into Entries and then appends those
 entries to a Journal. Here is a basic Importer, assumed to be provided with a
 nicely formatted JSON file:
 
-.. code:: python
-
-   {%
-     include-markdown "../tests/external_plugins_src/minchin/jrnl/contrib/importer/simple_json.py"
-     comments=false
-   %}
+.. include:: ../tests/external_plugins_src/minchin/jrnl/contrib/importer/simple_json.py
+   :literal:
 
 Note that the above is very minimal, doesn't do any error checking, and doesn't
 try to import all possible entry metadata.
@@ -127,12 +123,8 @@ Below is a basic JSON Exporter; note that a more extensive JSON exporter is
 included in *minchin.jrnl* and so this (if installed) would override the built
 in exporter.
 
-.. code:: python
-
-   {%
-     include-markdown "../tests/external_plugins_src/minchin/jrnl/contrib/exporter/custom_json.py"
-     comments=false
-   %}
+.. include:: ../tests/external_plugins_src/minchin/jrnl/contrib/exporter/custom_json.py
+   :literal:
 
 Note that the above is very minimal, doesn't do any error checking, and doesn't
 export all entry metadata.

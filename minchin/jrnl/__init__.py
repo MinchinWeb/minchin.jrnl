@@ -15,7 +15,7 @@ __url__ = "https://github.com/MinchinWeb/minchin.jrnl"
 __author__ = "William Minchin"
 __email__ = "w_minchin@hotmail.com"
 __license__ = "GPL 3"
-__copyright_years__ = "2013-17, 2019-20, 2023"
+__copyright_years__ = "2013-17, 2019-21, 2023"
 __copyright__ = "Copyright (c) {} {} & other contributors".format(
     __copyright_years__, __author__
 )
