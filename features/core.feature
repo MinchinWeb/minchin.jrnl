@@ -19,3 +19,13 @@ Feature: Functionality of jrnl outside of actually handling journals
 
     @todo
     Scenario: Listing available journals
+
+    Scenario Outline: List plugin names in --version 
+        Given We use the config "basic_onefile.yaml"
+        When We run "jrnl --version"
+        Then the output should contain pyproject.toml version
+        And The output should contain "<plugin_name> : <version> from jrnl.plugins.exporter.<plugin_source>_exporter" 
+        Examples:
+            | plugin_name | plugin_source | version |
+            | md  | markdown | 7.0.1-dev  |
+            | testing | testing | 0.0.1 | 
