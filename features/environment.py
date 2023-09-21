@@ -51,7 +51,6 @@ def before_feature(context, feature):
         feature.skip("Skipping on Windows")
         return
 
-
     if "skip_only_with_external_plugins" in feature.tags and testing_exporter is None:
         feature.skip("Requires test external plugins installed")
         return

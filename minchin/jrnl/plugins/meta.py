@@ -1,7 +1,16 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-"""Plugins dealing with plugins."""
+"""
+This file ("meta") uses that title in the reflexive sense; i.e. it is the
+collection of code that allows plugins to deal with themselves. In particular,
+the code here collects the list of imports and exporters, both internal and
+external, and tells the main program which plugins are available. Actual
+calling of the plugins is done directly and works because given plugin
+functions are importable/callable at predetermined (code) locations. Internal
+plugins are located in the `minchin.jrnl.plugins` namespace, and external
+plugins are located in the `minchin.jrnl.contrib` namespace.
+"""
 
 import importlib
 import pkgutil
@@ -67,10 +76,15 @@ __exporter_types = {
 __importer_types = {**__importer_types_builtin, **__importer_types_contrib}
 
 EXPORT_FORMATS = sorted(__exporter_types.keys())
+"""list of stings: all available export formats."""
 IMPORT_FORMATS = sorted(__importer_types.keys())
+"""list of stings: all available import formats."""
 
 
 def get_exporter(my_format):
+    """
+    Given an export format, returns the (callable) class of the corresponding exporter.
+    """
     for _exporter_name, exporter_class in __exporter_types.items():
         # print(exporter_class, exporter_class.Exporter.names)
         if (
@@ -83,6 +97,9 @@ def get_exporter(my_format):
 
 
 def get_importer(my_format):
+    """
+    Given an import format, returns the (callable) class of the corresponding importer.
+    """
     for _importer_name, importer_class in __importer_types.items():
         if (
             hasattr(importer_class, "Importer")

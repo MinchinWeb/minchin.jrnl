@@ -4,6 +4,7 @@ from minchin.jrnl.plugins.base import BaseExporter
 
 __version__ = "1.0.2"
 
+
 class Exporter(BaseExporter):
     names = ["rot13", "txt"]
     extension = "txt"
