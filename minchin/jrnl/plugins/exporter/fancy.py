@@ -6,6 +6,7 @@
 from textwrap import TextWrapper
 
 from minchin.jrnl.plugins.base import BaseExporter
+from minchin.jrnl.plugins.util import check_provided_linewrap_viability
 
 from ... import __version__  # deliberate relative import
 
@@ -36,11 +37,13 @@ class Exporter(BaseExporter):
         """Returns a fancy unicode representation of a single entry."""
         date_str = entry.date.strftime(entry.journal.config["timeformat"])
         linewrap = entry.journal.config["linewrap"] or 78
-        initial_linewrap = linewrap - len(date_str) - 2
+        initial_linewrap = max((linewrap - len(date_str) - 2))
         body_linewrap = linewrap - 2
         card = [
             cls.border_a + cls.border_b * (initial_linewrap) + cls.border_c + date_str
         ]
+        check_provided_linewrap_viability(linewrap, card, entry.journal)
+
         w = TextWrapper(
             width=initial_linewrap,
             initial_indent=cls.border_g + " ",

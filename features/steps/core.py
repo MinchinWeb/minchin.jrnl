@@ -394,13 +394,6 @@ def run(context, command, text=""):
         context.exit_status = e.code
 
 
-@given('we load template "{filename}"')
-def load_template(context, filename):
-    full_path = os.path.join("features/data/templates", filename)
-    exporter = plugins.template_exporter.__exporter_from_file(full_path)
-    plugins.__exporter_types[exporter.names[0]] = exporter
-
-
 @when('we set the keyring password of "{journal}" to "{password}"')
 def set_keyring_password(context, journal, password):
     keyring.set_password("jrnl", journal, password)
@@ -476,6 +469,11 @@ def check_output_version_inline(context):
 @then('the output should contain "{text}" or "{text2}"')
 def check_output_inline(context, text=None, text2=None):
     text = text or context.text
+    if "<pyproject.toml version>" in text:
+        pyproject = (Path(__file__) / ".." / ".." / ".." / "pyproject.toml").resolve()
+        pyproject_contents = toml.load(pyproject)
+        pyproject_version = pyproject_contents["tool"]["poetry"]["version"]
+        text = text.replace("<pyproject.toml version>", pyproject_version)
     out = context.stdout_capture.getvalue()
     assert (text and text in out) or (text2 and text2 in out)
 
