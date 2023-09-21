@@ -7,7 +7,7 @@
 Exporter for testing and experimentation purposes 
 """
 
-from jrnl.plugins.base import BaseExporter
+from minchin.jrnl.plugins.base import BaseExporter
 
 
 class Exporter(BaseExporter):

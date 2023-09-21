@@ -5,13 +5,13 @@
 
 from xml.dom import minidom
 
-from minchin.jrnl.plugins.exporter.json import Exporter as JSONExporter
+from minchin.jrnl.plugins.base import BaseExporter
 from minchin.jrnl.plugins.util import get_tags_count
 
 from ... import __version__  # deliberate relative import
 
 
-class Exporter(JSONExporter):
+class Exporter(BaseExporter):
     """This Exporter can convert entries and journals into XML."""
 
     names = ["xml"]
