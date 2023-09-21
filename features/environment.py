@@ -5,7 +5,7 @@ import shutil
 from minchin.jrnl.os_compat import ON_WINDOWS
 
 try:
-    from minchin.jrnl.contrib.exporter import testing as testing_exporter
+    from minchin.jrnl.contrib.exporter import flag as testing_exporter
 except ImportError:
     testing_exporter = None
 

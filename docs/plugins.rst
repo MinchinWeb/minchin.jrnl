@@ -183,7 +183,7 @@ Development Tips
    your *jrnl* source directory (which doesn't contain your namespace plugins)
    before it find your “site-packages” directory (i.e. installed packages,
    which will recognize namespace packages).
--  Don't name your plugin file “testing.py” or it won't be installed (at least
+-  Don't name your plugin file ``testing.py`` or it won't be installed (at least
    automatically) by pip.
 -  For examples, you can look to the *minchin.jrnl*\ 's internal importers and
    exporters. As well, there are some basic external examples included in
