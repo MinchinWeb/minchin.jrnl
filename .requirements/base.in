@@ -1,7 +1,7 @@
 ansiwrap >= 0.8.4
 asteval >= 0.9
 colorama >= 0.4         # https://github.com/tartley/colorama/blob/master/CHANGELOG.rst
-cryptography >= 3.0     # https://cryptography.io/en/latest/api-stability.html
+cryptography >= 41.0.4  # https://cryptography.io/en/latest/api-stability.html
 keyring >= 21.0         # https://github.com/jaraco/keyring#integration
 parsedatetime >= 2.6
 python-dateutil >= 2.8  # https://github.com/dateutil/dateutil/blob/master/RELEASING
