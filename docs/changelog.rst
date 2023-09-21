@@ -4,6 +4,9 @@ Changelog for *minchin.jrnl* v. |release|
 *This starts with v7. Future plans are to add the changelog of previous
 versions at a later date to this format.*
 
+- :feature:`-` merge external plugin support, as per legacy `Pull Request #1216
+  <https://github.com/jrnl-org/jrnl/pull/1216>`_. Also merges relevant parts of
+  legacy `Pull Request #1115 <https://github.com/jrnl-org/jrnl/pull/1115>`_.
 - :release:`7.0.0 <2023-9-19>`
 - :support:`-` add GitHub dependabot congifuration (to keep GitHub
   actions up to date).
