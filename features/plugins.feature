@@ -13,10 +13,13 @@ Feature: Functionality of Importer and Exporter Plugins
             | jrnl        | v2.7.2-beta | plugins | importer | jrnl     |
             | boxed       | v2.7.2-beta | plugins | exporter | fancy    |
             | dates       | v2.7.2-beta | plugins | exporter | dates    |
+            | default     | v2.8.1      | plugins | exporter | pretty   |
             | fancy       | v2.7.2-beta | plugins | exporter | fancy    |
             | json        | v2.7.2-beta | plugins | exporter | json     |
             | markdown    | v2.7.2-beta | plugins | exporter | markdown |
             | md          | v2.7.2-beta | plugins | exporter | markdown |
+            | pretty      | v2.8.1      | plugins | exporter | pretty   |
+            | short       | v2.8.1      | plugins | exporter | short    |
             | tags        | v2.7.2-beta | plugins | exporter | tag      |
             | text        | v2.7.2-beta | plugins | exporter | text     |
             | txt         | v2.7.2-beta | plugins | exporter | text     |
@@ -35,10 +38,14 @@ Feature: Functionality of Importer and Exporter Plugins
             | json        | v1.0.0      | contrib | importer | json     |
             | boxed       | v2.7.2-beta | plugins | exporter | fancy    |
             | dates       | v2.7.2-beta | plugins | exporter | dates    |
+            | default     | v2.8.1      | plugins | exporter | pretty   |
             | fancy       | v2.7.2-beta | plugins | exporter | fancy    |
             | json        | v1.0.0      | contrib | exporter | json     |
             | markdown    | v2.7.2-beta | plugins | exporter | markdown |
             | md          | v2.7.2-beta | plugins | exporter | markdown |
+            | pretty      | v2.8.1      | plugins | exporter | pretty   |
+            | rot13       | v1.0.0      | contrib | exporter | rot13    |
+            | short       | v2.8.1      | plugins | exporter | short    |
             | tags        | v2.7.2-beta | plugins | exporter | tag      |
             | text        | v2.7.2-beta | plugins | exporter | text     |
             | txt         | v1.0.0      | contrib | exporter | rot13    |
