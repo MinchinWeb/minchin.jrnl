@@ -13,23 +13,27 @@ import minchin.jrnl.plugins.importer
 
 __exporters_builtin = list(
     pkgutil.iter_modules(
-        minchin.jrnl.plugins.exporter.__path__, minchin.jrnl.plugins.exporter.__name__ + "."
+        minchin.jrnl.plugins.exporter.__path__,
+        minchin.jrnl.plugins.exporter.__name__ + ".",
     )
 )
 __exporters_contrib = list(
     pkgutil.iter_modules(
-        minchin.jrnl.contrib.exporter.__path__, minchin.jrnl.contrib.exporter.__name__ + "."
+        minchin.jrnl.contrib.exporter.__path__,
+        minchin.jrnl.contrib.exporter.__name__ + ".",
     )
 )
 
 __importers_builtin = list(
     pkgutil.iter_modules(
-        minchin.jrnl.plugins.importer.__path__, minchin.jrnl.plugins.importer.__name__ + "."
+        minchin.jrnl.plugins.importer.__path__,
+        minchin.jrnl.plugins.importer.__name__ + ".",
     )
 )
 __importers_contrib = list(
     pkgutil.iter_modules(
-        minchin.jrnl.contrib.importer.__path__, minchin.jrnl.contrib.importer.__name__ + "."
+        minchin.jrnl.contrib.importer.__path__,
+        minchin.jrnl.contrib.importer.__name__ + ".",
     )
 )
 
@@ -43,7 +47,6 @@ __exporter_types_contrib = {
     for plugin in __exporters_contrib
     for name in importlib.import_module(plugin.name).Exporter.names
 }
-
 
 
 __importer_types_builtin = {

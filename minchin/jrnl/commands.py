@@ -20,8 +20,8 @@ import sys
 def preconfig_diagnostic(_):
     from minchin.jrnl import __version__
     from minchin.jrnl.plugins.meta import (
-        IMPORT_FORMATS,
         EXPORT_FORMATS,
+        IMPORT_FORMATS,
         get_exporter,
         get_importer,
     )

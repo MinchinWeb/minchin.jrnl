@@ -13,7 +13,7 @@ Table Of Contents
    upgrades
    requirements
 
-   plugins
+   Custom Importers and Exporters <plugins>
    class-*
    function-*
 

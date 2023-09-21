@@ -4,10 +4,12 @@
 # License: https://www.gnu.org/licenses/gpl-3.0.html
 from collections import Counter
 
-from minchin.jrnl.plugins.exporter.text import Exporter as TextExporter
-from minchin.jrnl import __version__
+from minchin.jrnl.plugins.base import BaseExporter
 
-class Exporter(TextExporter):
+from ... import __version__  # deliberate relative import
+
+
+class Exporter(BaseExporter):
     """This Exporter lists dates and their respective counts, for heatmapping etc."""
 
     names = ["dates"]

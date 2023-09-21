@@ -5,11 +5,13 @@
 
 import json
 
-from minchin.jrnl.plugins.exporter.text import Exporter as TextExporter
+from minchin.jrnl.plugins.base import BaseExporter
 from minchin.jrnl.plugins.util import get_tags_count
-from minchin.jrnl import __version__
 
-class Exporter(TextExporter):
+from ... import __version__  # deliberate relative import
+
+
+class Exporter(BaseExporter):
     """This Exporter can convert entries and journals into json."""
 
     names = ["json"]

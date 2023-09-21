@@ -5,19 +5,17 @@
 
 import sys
 
-from minchin.jrnl import __version__
+from minchin.jrnl.plugins.base import BaseImporter
+
+from ... import __version__  # deliberate relative import
 
 
-class Importer:
+class Importer(BaseImporter):
     """This plugin imports entries from other jrnl files."""
 
     names = ["jrnl"]
     version = __version__
-    
-    @classmethod
-    def class_path(cls):
-        return cls.__module__
-    
+
     @staticmethod
     def import_(journal, my_input=None):
         """Imports from an existing file if input is specified, and
@@ -35,7 +33,9 @@ class Importer:
         journal.import_(other_journal_txt)
         new_cnt = len(journal.entries)
         print(
-            "[{} imported to {} journal]".format(new_cnt - old_cnt, journal.name),
+            "[{} entries imported to '{}' journal]".format(
+                new_cnt - old_cnt, journal.name
+            ),
             file=sys.stderr,
         )
         journal.write()

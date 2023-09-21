@@ -5,10 +5,12 @@
 
 from textwrap import TextWrapper
 
-from minchin.jrnl.plugins.exporter.text import Exporter as TextExporter
-from minchin.jrnl import __version__
+from minchin.jrnl.plugins.base import BaseExporter
 
-class Exporter(TextExporter):
+from ... import __version__  # deliberate relative import
+
+
+class Exporter(BaseExporter):
     """This Exporter can convert entries and journals into text with unicode box drawing characters."""
 
     names = ["fancy", "boxed"]

@@ -8,10 +8,12 @@ import re
 import sys
 
 from minchin.jrnl.color import ERROR_COLOR, RESET_COLOR, WARNING_COLOR
-from minchin.jrnl.plugins.exporter.text import Exporter as TextExporter
-from minchin.jrnl import __version__
+from minchin.jrnl.plugins.base import BaseExporter
 
-class Exporter(TextExporter):
+from ... import __version__  # deliberate relative import
+
+
+class Exporter(BaseExporter):
     """This Exporter can convert entries and journals into Markdown formatted text with YAML front matter."""
 
     names = ["yaml"]
@@ -130,4 +132,4 @@ class Exporter(TextExporter):
             ),
             file=sys.stderr,
         )
-        return
+        raise NotImplementedError
