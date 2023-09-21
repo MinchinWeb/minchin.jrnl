@@ -18,6 +18,7 @@ import toml
 import yaml
 
 from minchin.jrnl import Journal, __version__, install, plugins
+from minchin.jrnl.behave_testing import _mock_getpass, _mock_input, _mock_time_parse
 from minchin.jrnl.cli import cli
 from minchin.jrnl.config import load_config
 from minchin.jrnl.os_compat import ON_WINDOWS
@@ -243,30 +244,6 @@ def contains_editor_file(context, method, text=""):
         assert text in content, format
     else:
         assert False, f"Method '{method}' not supported"
-
-
-def _mock_getpass(inputs):
-    def prompt_return(prompt=""):
-        if type(inputs) == str:
-            return inputs
-        try:
-            return next(inputs)
-        except StopIteration:
-            raise KeyboardInterrupt
-
-    return prompt_return
-
-
-def _mock_input(inputs):
-    def prompt_return(prompt=""):
-        try:
-            val = next(inputs)
-            print(prompt, val)
-            return val
-        except StopIteration:
-            raise KeyboardInterrupt
-
-    return prompt_return
 
 
 @when('we run "{command}" and enter')
