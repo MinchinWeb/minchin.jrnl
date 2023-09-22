@@ -4,6 +4,10 @@ Changelog for *minchin.jrnl* v. |release|
 *This starts with v7. Future plans are to add the changelog of previous
 versions at a later date to this format.*
 
+- :feature:`-` allow top-level ``__version__`` without use of an
+  ``__init__.py`` file. c.f. legacy `Pull Request #1296
+  <https://github.com/jrnl-org/jrnl/pull/1296>`_. This had (previously?) been
+  required for namespace plugins to load.
 - :feature:`-` merge external plugin support, as per legacy `Pull Request #1216
   <https://github.com/jrnl-org/jrnl/pull/1216>`_. Also merges relevant parts of
   legacy `Pull Request #1115 <https://github.com/jrnl-org/jrnl/pull/1115>`_.

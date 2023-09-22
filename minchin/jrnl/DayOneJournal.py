@@ -15,7 +15,8 @@ from xml.parsers.expat import ExpatError
 import pytz
 import tzlocal
 
-from . import Entry, Journal, __title__, __version__
+from . import Entry, Journal, __version__
+from .constants import __title__
 
 
 class DayOne(Journal.Journal):

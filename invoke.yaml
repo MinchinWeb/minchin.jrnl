@@ -8,7 +8,7 @@ releaser:
   test: None
   source: minchin
   changelog: CHANGELOG.rst
-  version: minchin\jrnl\__version__.py
+  version: minchin\jrnl\constants.py
   test_command: None
   version_bump: None
   extra_packages:

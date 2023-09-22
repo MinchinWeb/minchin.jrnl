@@ -12,5 +12,11 @@ internal code changes that do not affect the API.
 Certain version numbers will be skipped, to try and avoid confusion with
 jrnl-org/jrnl ("legacy") releases.
 """
+import sys
 
 __version__ = "7.0.1-dev"
+
+
+# this makes the version available at `minchin.jrnl.__version__` without
+# requiring a `__init__.py` file in the *jrnl* root directory
+sys.modules["minchin.jrnl.__version__"] = __version__

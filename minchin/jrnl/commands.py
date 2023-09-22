@@ -12,13 +12,16 @@ Also, please note that all (non-builtin) imports should be scoped to each functi
 avoid any possible overhead for these standalone commands.
 """
 
-from itertools import chain
-import platform
+
 import sys
 
 
 def preconfig_diagnostic(_):
+    from itertools import chain
+    import platform
+
     from minchin.jrnl import __version__
+    from minchin.jrnl.constants import __title__, __version_codename__
     from minchin.jrnl.plugins.meta import (
         EXPORT_FORMATS,
         IMPORT_FORMATS,
@@ -26,11 +29,10 @@ def preconfig_diagnostic(_):
         get_importer,
     )
 
-    print(
-        f"minchin.jrnl: {__version__}\n"
-        f"Python: {sys.version}\n"
-        f"OS: {platform.system()} {platform.release()}"
-    )
+    print(f"{__title__}: {__version__}", end="")
+    if __version_codename__:
+        print(f' "{__version_codename__}"')
+    print(f"Python: {sys.version}\n" f"OS: {platform.system()} {platform.release()}")
 
     plugin_name_length = max(
         [len(str(x)) for x in chain(IMPORT_FORMATS, EXPORT_FORMATS)]
@@ -55,7 +57,8 @@ def preconfig_diagnostic(_):
 def preconfig_version(_):
     # TODO: include license text as jrnl command
 
-    from minchin.jrnl import __copyright__, __title__, __version__, __version_codename__
+    from minchin.jrnl import __version__
+    from minchin.jrnl.constants import __copyright__, __title__, __version_codename__
 
     version_str = f"{__title__}, version {__version__}"
     if __version_codename__:

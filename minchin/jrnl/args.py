@@ -7,7 +7,6 @@ import argparse
 import re
 import textwrap
 
-from . import __url__
 from .commands import (
     postconfig_decrypt,
     postconfig_encrypt,
@@ -16,6 +15,7 @@ from .commands import (
     preconfig_diagnostic,
     preconfig_version,
 )
+from .constants import __url__
 from .output import deprecated_cmd
 from .plugins import util
 from .plugins.meta import EXPORT_FORMATS, IMPORT_FORMATS

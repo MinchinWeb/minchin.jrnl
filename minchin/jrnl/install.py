@@ -15,7 +15,9 @@ from platformdirs import user_config_dir, user_documents_dir
 import xdg.BaseDirectory  # for Legacy file locations
 import yaml
 
-from . import (
+from . import __version__
+from .config import load_config, verify_config_colors
+from .constants import (
     ISSUES_URL,
     PLATFORM_DIRS_APP_AUTHOR,
     PLATFORM_DIRS_APP_ENSURE_EXISTS,
@@ -23,9 +25,7 @@ from . import (
     PLATFORM_DIRS_APP_ROAMING,
     PLATFORM_DIRS_APP_VERSION,
     __title__,
-    __version__,
 )
-from .config import load_config, verify_config_colors
 from .exception import UserAbort
 from .os_compat import DEFAULT_WINDOWS_EDITOR, ON_WINDOWS
 from .prompt import yesno

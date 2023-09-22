@@ -19,10 +19,8 @@ __copyright_years__ = "2013-17, 2019-21, 2023"
 __copyright__ = "Copyright (c) {} {} & other contributors".format(
     __copyright_years__, __author__
 )
-try:
-    from .__version__ import __version__
-except ImportError:
-    __version__ = "source"
+from . import __version__
+
 __version_codename__ = "Phoenix"
 
 ISSUES_URL = "https://github.com/MinchinWeb/minchin.jrnl/issues"

@@ -2,7 +2,7 @@
 # encoding: utf-8
 # Copyright (C) 2012-2021 jrnl contributors
 # License: https://www.gnu.org/licenses/gpl-3.0.html
-from minchin.jrnl.exception import JrnlError
+from minchin.jrnl.exception import LineWrapTooSmallForDateFormat
 
 
 def get_tags_count(journal):
@@ -31,9 +31,14 @@ def oxford_list(lst):
 def check_provided_linewrap_viability(linewrap, card, journal):
     if len(card[0]) > linewrap:
         width_violation = len(card[0]) - linewrap
-        raise JrnlError(
-            "LineWrapTooSmallForDateFormat",
-            config_linewrap=linewrap,
-            columns=width_violation,
-            journal=journal,
+        raise LineWrapTooSmallForDateFormat(
+            (
+                "The provided linewrap value of {config_linewrap} is too "
+                "small by {columns} columns to display the timestamps in the "
+                "configured time format for journal {journal}."
+            ).format(
+                config_linewrap=linewrap,
+                columns=width_violation,
+                journal=journal,
+            )
         )

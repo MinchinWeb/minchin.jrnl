@@ -7,9 +7,10 @@ import os
 import shutil
 import sys
 
-from . import Journal, __version__, __version_codename__
+from . import Journal, __version__
 from .EncryptedJournal import EncryptedJournal
 from .config import is_config_json, load_config, scope_config
+from .constants import __version_codename__
 from .exception import UpgradeValidationException, UserAbort
 from .prompt import yesno
 

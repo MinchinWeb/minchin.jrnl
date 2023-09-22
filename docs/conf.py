@@ -5,17 +5,18 @@
 
 import re
 
-import minchin.jrnl
+# import minchin.jrnl
+import minchin.jrnl.constants
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = minchin.jrnl.__title__
+project = minchin.jrnl.constants.__title__
 copyright = "{} {} & other contributors".format(
-    minchin.jrnl.__copyright_years__, minchin.jrnl.__author__
+    minchin.jrnl.constants.__copyright_years__, minchin.jrnl.constants.__author__
 )
 
-author = minchin.jrnl.__author__
+author = minchin.jrnl.constants.__author__
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -70,7 +71,7 @@ html_use_smartypants = True
 html_show_sphinx = False
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = minchin.jrnl.__title__ + "doc"
+htmlhelp_basename = minchin.jrnl.constants.__title__ + "doc"
 
 
 # for releases

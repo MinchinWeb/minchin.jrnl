@@ -86,7 +86,7 @@ def get_exporter(my_format):
     Given an export format, returns the (callable) class of the corresponding exporter.
     """
     try:
-        return __exporter_types[format].Exporter
+        return __exporter_types[my_format].Exporter
     except (AttributeError, KeyError):
         return None
 
@@ -96,6 +96,6 @@ def get_importer(my_format):
     Given an import format, returns the (callable) class of the corresponding importer.
     """
     try:
-        return __importer_types[format].Importer
+        return __importer_types[my_format].Importer
     except (AttributeError, KeyError):
         return None
