@@ -2,7 +2,7 @@
 from invoke import task
 
 try:
-    from minchin.releaser import make_release
+    from minchin.releaser import make_release  # noqa: F401
 except ImportError:
     print("[WARN] minchin.releaser not installed.")
 
@@ -51,3 +51,20 @@ def lint(ctx, color=True):
 
     ctx.run(f"isort tasks.py ./docs ./features ./minchin ./tests{color_cli}")
     ctx.run(f"black tasks.py ./docs ./features ./minchin ./tests{color_cli}")
+
+
+@task
+def test_style(ctx, color=True):
+    """
+    Tests codebase for style issues. Runs `flake8`.
+
+    Args:
+        --color / --no-color:  Whether to force color mode (default is on)
+    """
+
+    if color:
+        color_cli = "--color always"
+    else:
+        color_cli = "--color never"
+
+    ctx.run(f"flake8 tasks.py ./docs ./features ./minchin ./tests {color_cli}")

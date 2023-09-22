@@ -17,8 +17,8 @@ import keyring
 import toml
 import yaml
 
-from minchin.jrnl import Journal, __version__, install, plugins
-from minchin.jrnl.behave_testing import _mock_getpass, _mock_input, _mock_time_parse
+from minchin.jrnl import Journal, __version__, install
+from minchin.jrnl.behave_testing import _mock_getpass, _mock_input
 from minchin.jrnl.cli import cli
 from minchin.jrnl.config import load_config
 from minchin.jrnl.os_compat import ON_WINDOWS

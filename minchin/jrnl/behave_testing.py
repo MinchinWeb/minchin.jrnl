@@ -1,6 +1,10 @@
+from minchin.jrnl.time import parse as jrnl_time_pase
+
+
 def _mock_getpass(inputs):
     def prompt_return(prompt=""):
-        if type(inputs) == str:
+        # if type(inputs) == str:
+        if isinstance(inputs, str):
             return inputs
         try:
             return next(inputs)
@@ -23,12 +27,12 @@ def _mock_input(inputs):
 
 
 def _mock_time_parse(context):
-    original_parse = jrnl.time.parse
+    original_parse = jrnl_time_pase
     if "now" not in context:
         return original_parse
 
-    def wrapper(input, *args, **kwargs):
-        input = context.now if input == "now" else input
-        return original_parse(input, *args, **kwargs)
+    def wrapper(my_input, *args, **kwargs):
+        my_input = context.now if my_input == "now" else my_input
+        return original_parse(my_input, *args, **kwargs)
 
     return wrapper

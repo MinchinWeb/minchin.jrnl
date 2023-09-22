@@ -2,9 +2,9 @@ import os
 import re
 
 try:
-    from setuptools import find_packages, setup
+    from setuptools import setup
 except ImportError:
-    from distutils.core import find_packages, setup
+    from distutils.core import setup
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 

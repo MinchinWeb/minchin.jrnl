@@ -24,12 +24,12 @@ def editor_override(context, editor=None):
     # fmt: off
     # see: https://github.com/psf/black/issues/664
     with \
-        mock.patch("jrnl.jrnl._write_in_editor", side_effect=_mock_write_in_editor(context.jrnl_config)) as mock_write_in_editor, \
+        mock.patch("minchin.jrnl.jrnl._write_in_editor", side_effect=_mock_write_in_editor(context.jrnl_config)) as mock_write_in_editor, \
         mock.patch("sys.stdin.isatty", return_value=True), \
-        mock.patch('getpass.getpass',side_effect=_mock_getpass(password)), \
-        mock.patch("jrnl.time.parse", side_effect = _mock_time_parse(context)), \
-        mock.patch("jrnl.config.get_config_path", side_effect=lambda: context.config_path), \
-        mock.patch("jrnl.install.get_config_path", side_effect=lambda: context.config_path) \
+        mock.patch('getpass.getpass', side_effect=_mock_getpass(password)), \
+        mock.patch("minchin.jrnl.time.parse", side_effect = _mock_time_parse(context)), \
+        mock.patch("minchin.jrnl.config.get_config_path", side_effect=lambda: context.config_path), \
+        mock.patch("minchin.jrnl.install.get_config_path", side_effect=lambda: context.config_path) \
     :
         try :
             parsed_args = parse_args(context.args)
@@ -37,15 +37,15 @@ def editor_override(context, editor=None):
             context.exit_status = 0
             context.editor = mock_write_in_editor
             expected_config = context.jrnl_config
-            expected_config['editor'] = '%s'%editor 
-            expected_config['journal'] ='features/journals/journal.jrnl'
+            expected_config['editor'] = '%s' % editor
+            expected_config['journal'] = 'features/journals/journal.jrnl'
 
             if editor is not None:
                 assert mock_write_in_editor.call_count == 1
-                assert mock_write_in_editor.call_args[0][0]['editor']==editor
-            else: 
+                assert mock_write_in_editor.call_args[0][0]['editor'] == editor
+            else:
                 # Expect that editor is *never* called
-                mock_write_in_editor.assert_not_called() 
+                mock_write_in_editor.assert_not_called()
         except SystemExit as e:
             context.exit_status = e.code
     # fmt: on

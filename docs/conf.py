@@ -25,7 +25,7 @@ author = minchin.jrnl.constants.__author__
 # The full version, including alpha/beta/rc tags.
 release = minchin.jrnl.__version__
 # The short X.Y version.
-_p = re.compile("\d+\.\d+")
+_p = re.compile(r"\d+\.\d+")
 _versionmatch = _p.match(release)
 version = _versionmatch.group()
 
@@ -54,7 +54,7 @@ exclude_patterns = [
 html_theme = "alabaster"
 html_static_path = ["_static"]
 
-## Others
+# -- Others ------------------------------------------------------------------
 
 releases_github_path = "minchinweb/minchin.jrnl"
 

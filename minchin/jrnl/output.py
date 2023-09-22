@@ -46,6 +46,7 @@ def list_journals(config):
     )
     return result
 
+
 def ansi_wrap(text, width):
     """Wrap text while passing through ANSI colour codes."""
     ansi_text = Text.from_ansi(text, no_wrap=False, tab_size=None)

@@ -201,7 +201,7 @@ Feature: Searching in a journal
         When we run "jrnl @plAy"
         Then the output should contain "2013-05-17 11:39 This entry has tags!"
 
-    Scenario: Loading a sample journal
+    Scenario: Loading a simple journal
         Given we use the config "simple.yaml"
         When we run "jrnl -2"
         Then we should get no error

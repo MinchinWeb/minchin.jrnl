@@ -127,7 +127,8 @@ class Entry:
             body = ansi_wrap(body, self.journal.config["linewrap"] - len(indent))
             if indent:
                 body = "\n".join(
-                    colorize(indent, self.journal.config["colors"]["body"]) + line for line in body.splitlines()
+                    colorize(indent, self.journal.config["colors"]["body"]) + line
+                    for line in body.splitlines()
                 )
 
             body = colorize(body, self.journal.config["colors"]["body"])

@@ -72,3 +72,12 @@ skip_gitignore = true
 
 [tool.black]
 line-length = 88
+
+[tool.flake8]
+# requires flake8-pyproject to read this
+ignore = [
+    "E203",  # conflicts with `black`
+    "W503",  # "line break before binary operator", conflicts with `black`
+]
+max-line-length = 88
+count = true

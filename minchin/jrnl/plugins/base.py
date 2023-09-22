@@ -11,7 +11,6 @@ import os
 import re
 import unicodedata
 
-from minchin.jrnl import __version__
 from minchin.jrnl.color import ERROR_COLOR, RESET_COLOR
 
 
@@ -96,7 +95,8 @@ class BaseExporter:
             return f"[Journal '{journal.name}' exported (as multiple files) to {path}]"
 
     def _slugify(string):
-        """Slugifies a string.
+        """
+        Slugifies a string.
 
         Based on public domain code from https://github.com/zacharyvoase/slugify
         """
@@ -107,9 +107,11 @@ class BaseExporter:
 
     @classmethod
     def export(cls, journal, output=None):
-        """Exports to individual files if output is an existing path, or into
+        """
+        Exports to individual files if output is an existing path, or into
         a single file if output is a file name, or returns the exporter's
-        representation as string if output is None."""
+        representation as string if output is None.
+        """
         if output and os.path.isdir(output):  # multiple files
             return cls.write_files(journal, output)
         elif output:  # single file
