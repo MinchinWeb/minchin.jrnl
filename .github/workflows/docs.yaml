@@ -5,6 +5,8 @@ on:
     branches: [ release, pheonix ]
     paths:
     - 'docs/**'
+    - 'README.rst'
+    - 'LICENSE.rst'
     - '.requirements/**'
     - '.github/workflows/docs.yaml'
   workflow_dispatch:

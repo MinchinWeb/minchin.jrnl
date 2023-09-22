@@ -42,9 +42,17 @@ maintainers = [
 # keywords
 license = {text = "GPLv3"}
 classifiers = [
-    "Topic :: Office/Business :: News/Diary",
+    "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Office/Business :: News/Diary",
 ]
 
 
@@ -53,11 +61,12 @@ jrnl = "minchin.jrnl.cli:cli"
 "minchin.jrnl" = "minchin.jrnl.cli:cli"
 
 [project.urls]
-Homepage = "https://github.com/MinchinWeb/minchin.jrnl"
+Homepage = "http://minchin.ca/minchin.jrnl/"
 "Bug Tracker" = "https://github.com/MinchinWeb/minchin.jrnl/issues"
-# Documentation = 
-# Repository =
-# Changelog = 
+Documentation = "http://minchin.ca/minchin.jrnl/"
+Repository = "https://github.com/MinchinWeb/minchin.jrnl"
+Changelog = "http://minchin.ca/minchin.jrnl/changelog/"
+"Release Notes" = "https://blog.minchin.ca/label/minchinjrnl/"
 
 # [tool.poetry]
 # description = "Collect your thoughts and notes without leaving the command line."

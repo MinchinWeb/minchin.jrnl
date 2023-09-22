@@ -12,7 +12,7 @@ import minchin.jrnl.constants
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = minchin.jrnl.constants.__title__
-copyright = "{} {} & other contributors".format(
+copyright = " {} {} & other contributors".format(
     minchin.jrnl.constants.__copyright_years__, minchin.jrnl.constants.__author__
 )
 

@@ -1,43 +1,61 @@
 *minchin.jrnl* version |version| Documentation
 ==============================================
 
-.. logo
-   .. image:: colourettu-logo-4x.png
-      :align: center
+.. image:: _static/minchin.jrnl-logo-4x.png
+    :align: center
+    :alt: project logo
 
-*minchin.jrnl* is a command line program to manage your journal, or any other
-collection of plain text notes. It gains further power through having build-in
-imports and exports to several other plain text formats.
+.. intro, installation
+.. include:: ../README.rst
+   :start-line: 5
+   :end-line: 45
 
-To install *minchin.jrnl*, the easiest way is to use ``pip``::
+.. con't installation
 
-    pip install minchin.jrnl
+Read full :doc:`installations instructions </installation>`.
 
-Find what to read more using the Documentation
-:doc:`Table of Contents </contents>` (or use the 'next' button).
+Documentation
+-------------
+
+You are reading the full documentation. Consult the :doc:`Table of Contents
+</contents>`.
+
+Changelog
+---------
+
+Release notes are on my blog at https://blog.minchin.ca/label/minchinjrnl/
+
+Read the :doc:`full Changelog </changelog>`.
 
 .. links
-   code repo
-   issue reporting
-   documentation
-   PyPI
+.. include:: ../README.rst
+   :start-line: 61
+   :end-line: 69
 
-.. image:: https://img.shields.io/pypi/v/minchin.jrnl.svg?style=flat
-    :target: https://pypi.python.org/pypi/minchin.jrnl/
-    :alt: PyPI version number
-
-.. image:: https://img.shields.io/github/workflow/status/MinchinWeb/minchin.jrnl/CI
-    :target: https://github.com/MinchinWeb/minchin.jrnl/actions/workflows/ci.yml
-    :alt: GitHub Workflow Status
-
-.. image:: https://img.shields.io/pypi/l/minchin.jrnl.svg?style=flat&color=orange
-    :target: License
 
 License
 -------
 
-*minchin.jrnl* is licensed under the GPLv3 license. :doc:`Read full license
-</license>`.
+The project is licensed under GPLv3. Read the :doc:`full license </license>`.
+
+Code contributed on or before April 18, 2020 and by William Minchin (any date)
+is duel licensed under the MIT license as well. One of the long term projects
+of the goal is to remove or replace any GPLv3 code, and move the entire project
+to the MIT license.
+
+.. Contributors
+.. include:: ../README.rst
+   :start-line: 81
+   :end-line: 100
+
+.. TODO: Add: how to contribute
+
+Your contributions to make ``minchin.jrnl`` better would be greatly welcomed!
+
+.. button definitions
+.. include:: ../README.rst
+   :start-line: 104
+
 
 .. Indices and tables
    ==================

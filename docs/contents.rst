@@ -8,15 +8,27 @@ Table Of Contents
    :glob:
 
    Front Page <index>
+   overview
 
-   installation
-   upgrades
-   requirements
+   user-guide/quickstart
+   Basic Usage <user-guide/basic-usage>
+   user-guide/encryption
+   user-guide/journal-types
+   user-guide/formats
+   user-guide/advanced-usage
+   user-guide/external-editor
+   user-guide/tips-tricks
 
-   Custom Importers and Exporters <plugins>
-   class-*
-   function-*
+   user-guide/installation
+   user-guide/upgrades
 
-   Known Issues <known-issues>
-   changelog
+   contributing
+
+   reference/requirements
+   Custom Importers and Exporters <reference/plugins>
+   reference/class-*
+   reference/function-*
+
+   Known Issues <user-guide/known-issues>
+   Changelog <changelog>
    license
