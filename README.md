@@ -6,9 +6,9 @@
 
 # *minchin.jrnl*
 
+ [![Version](http://img.shields.io/pypi/v/minchin.jrnl.svg?style=flat)](https://pypi.python.org/pypi/minchin.jrnl/)
  [![Testing](https://github.com/MinchinWeb/minchin.jrnl/workflows/Testing/badge.svg)](https://github.com/MinchinWeb/minchin.jrnl/actions?query=workflow%3ATesting)
  [![Downloads](https://pepy.tech/badge/minchin.jrnl)](https://pepy.tech/project/minchin.jrnl)
- [![Version](http://img.shields.io/pypi/v/minchin.jrnl.svg?style=flat)](https://pypi.python.org/pypi/minchin.jrnl/)
 
 *To get help, [submit an
 issue](https://github.com/MinchinWeb/minchin.jrnl/issues/new/choose) on

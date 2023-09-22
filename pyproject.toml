@@ -7,7 +7,8 @@ include = ["minchin*"]
 exclude = ["tests"]
 
 [tool.setuptools.dynamic]
-version = {attr = "minchin.jrnl.__version__"}
+# this has to be the place the version is located via static analysis
+version = {attr = "minchin.jrnl.__version__.__version__"}
 # description = {attr = "minchin.jrnl.__description__"}  # must be pulled from file
 readme = {file = ["README.md"], content-type = "text/markdown"}
 dependencies = {file = [".requirements/base.in"]}

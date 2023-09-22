@@ -13,10 +13,19 @@ DOC_DIR = "docs"
 
 
 @task
-def build_docs(ctx):
-    """Build Sphinx documentation."""
+def build_docs(ctx, color=True):
+    """
+    Build Sphinx documentation.
 
-    ctx.run(f"sphinx-build -b dirhtml {DOC_DIR} {DOC_DIR}/_build")
+    Args:
+        --color / --no-color:  Whether to force color mode (default is on)
+    """
+
+    color_cli = ""
+    if color:
+        color_cli = "--color "
+
+    ctx.run(f"sphinx-build -b dirhtml {color_cli}{DOC_DIR} {DOC_DIR}/_build")
 
 
 @task
@@ -28,8 +37,17 @@ def serve_docs(ctx):
 
 
 @task
-def lint(ctx):
-    """Lint codebase: Run `isort` and `black`."""
+def lint(ctx, color=True):
+    """
+    Lint codebase: Run `isort` and `black`.
 
-    ctx.run("isort tasks.py ./docs ./features ./minchin ./tests")
-    ctx.run("black tasks.py ./docs ./features ./minchin ./tests")
+    Args:
+        --color / --no-color:  Whether to force color mode (default is on)
+    """
+
+    color_cli = ""
+    if color:
+        color_cli = " --color"
+
+    ctx.run(f"isort tasks.py ./docs ./features ./minchin ./tests{color_cli}")
+    ctx.run(f"black tasks.py ./docs ./features ./minchin ./tests{color_cli}")
