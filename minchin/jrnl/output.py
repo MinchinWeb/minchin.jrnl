@@ -6,6 +6,9 @@
 import logging
 import os
 
+from rich.console import Console
+from rich.text import Text
+
 
 def deprecated_cmd(old_cmd, new_cmd, callback=None, **kwargs):
     import sys
@@ -42,3 +45,12 @@ def list_journals(config):
         ]
     )
     return result
+
+def ansi_wrap(text, width):
+    """Wrap text while passing through ANSI colour codes."""
+    ansi_text = Text.from_ansi(text, no_wrap=False, tab_size=None)
+
+    console = Console(width=width)
+    with console.capture() as capture:
+        console.print(ansi_text, sep="", end="")
+    return capture.get()
