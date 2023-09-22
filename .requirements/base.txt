@@ -6,8 +6,6 @@
 #
 ansiwrap==0.8.4
     # via -r .\.requirements\base.in
-asteval==0.9.31
-    # via -r .\.requirements\base.in
 cffi==1.15.1
     # via cryptography
 colorama==0.4.6

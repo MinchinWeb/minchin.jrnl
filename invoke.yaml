@@ -14,7 +14,6 @@ releaser:
   extra_packages:
     test:
       - ansiwrap
-      - asteval
       - cffi
       - keyring
       - parsedatetime

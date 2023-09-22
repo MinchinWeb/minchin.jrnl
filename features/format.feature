@@ -89,34 +89,6 @@ Feature: Custom formats
         | basic_folder    |
         | basic_dayone    |
 
-    # Scenario Outline: Exporting using custom templates
-    #     Given we use the config "<config>.yaml"
-    #     And we load template "sample.template"
-    #     And we use the password "test" if prompted
-    #     When we run "jrnl -1 --format sample"
-    #     Then the output should be
-    #     """
-    #     The third entry finally after weeks without writing.
-    #     ----------------------------------------------------
-    #
-    #     I'm so excited about emojis. 💯 🎶 💩
-    #
-    #     Donec semper pellentesque iaculis. Nullam cursus et justo sit amet venenatis.
-    #     Vivamus tempus ex dictum metus vehicula gravida. Aliquam sed sem dolor. Nulla
-    #     eget ultrices purus. Quisque at nunc at quam pharetra consectetur vitae quis
-    #     dolor. Fusce ultricies purus eu est feugiat, quis scelerisque nibh malesuada.
-    #     Quisque egestas semper nibh in hendrerit. Nam finibus ex in mi mattis
-    #     vulputate. Sed mauris urna, consectetur in justo eu, volutpat accumsan justo.
-    #     Phasellus aliquam lacus placerat convallis vestibulum. Curabitur maximus at
-    #     ante eget fringilla. @tagthree and also @tagone
-    #     """
-    #
-    #     Examples: configs
-    #     | config          |
-    #     | basic_onefile   |
-    #     | basic_encrypted |
-    #     | basic_folder    |
-    #     | basic_dayone    |
 
     Scenario Outline: Increasing Headings on Markdown export
         Given we use the config "<config>.yaml"
