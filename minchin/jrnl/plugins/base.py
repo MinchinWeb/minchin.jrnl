@@ -57,7 +57,7 @@ class BaseExporter:
             with open(path, "w", encoding="utf-8") as f:
                 f.write(cls.export_journal(journal))
                 return (
-                    f"[Journal '{journal.name}' exported (as a single file) to {path}]"
+                    f"[Journal '{journal.name}' exported (as a single file) to '{path}']"
                 )
         except IOError as e:
             return f"[{ERROR_COLOR}ERROR{RESET_COLOR}: {e.filename} {e.strerror}]"
@@ -92,7 +92,7 @@ class BaseExporter:
                 "exporting as individual files.]"
             )
         else:
-            return f"[Journal '{journal.name}' exported (as multiple files) to {path}]"
+            return f"[Journal '{journal.name}' exported (as multiple files) to '{path}']"
 
     def _slugify(string):
         """

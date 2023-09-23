@@ -15,6 +15,7 @@ Table Of Contents
    user-guide/encryption
    user-guide/journal-types
    user-guide/formats
+   user-guide/imports-exports
    user-guide/advanced-usage
    user-guide/external-editor
    user-guide/tips-tricks

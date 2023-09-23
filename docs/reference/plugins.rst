@@ -174,9 +174,10 @@ in situations other than a traditional export. They are:
 Development Tips
 ----------------
 
--  Editable installs (``pip install -e ...``) don't seem to play nice with the
-   namespace layout. If your plugin isn't appearing, try a non-editable install
-   of both *minchin.jrnl* and your plugin.
+-  Editable installs (``pip install -e ...``) don't seem to (always?) play nice
+   with the namespace layout. If your plugin isn't appearing, try a
+   non-editable install of both *minchin.jrnl* and your plugin. If that still
+   doesn't work, try re-creating your virtual environment.
 -  If you run *minchin.jrnl* from the main project root directory (the one that
    contains *minchin.jrnl*\ 's source code), namespace plugins won't be
    recognized. This is (I suspect) because the Python interpreter will find

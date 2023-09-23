@@ -32,13 +32,13 @@ class Exporter(BaseExporter):
         else:
             heading = "###"
 
-        """Increase heading levels in body text"""
+        # Increase heading levels in body text
         newbody = ""
         previous_line = ""
         warn_on_heading_level = False
         for line in body.splitlines(True):
             if re.match(r"^#+ ", line):
-                """ATX style headings"""
+                # ATX style headings
                 newbody = newbody + previous_line + heading + line
                 if re.match(r"^#######+ ", heading + line):
                     warn_on_heading_level = True
@@ -46,13 +46,13 @@ class Exporter(BaseExporter):
             elif re.match(r"^=+$", line.rstrip()) and not re.match(
                 r"^$", previous_line.strip()
             ):
-                """Setext style H1"""
+                # Setext style H1
                 newbody = newbody + heading + "# " + previous_line
                 line = ""
             elif re.match(r"^-+$", line.rstrip()) and not re.match(
                 r"^$", previous_line.strip()
             ):
-                """Setext style H2"""
+                # Setext style H2
                 newbody = newbody + heading + "## " + previous_line
                 line = ""
             else:

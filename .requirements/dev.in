@@ -8,6 +8,7 @@ invoke
 
 # lint
 black >= 23.9
+isort
 flake8
 flake8-pyproject
 

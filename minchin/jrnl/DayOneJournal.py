@@ -39,10 +39,6 @@ class DayOne(Journal.Journal):
         super().__init__(**kwargs)
 
     def open(self):
-        filenames = [
-            os.path.join(self.config["journal"], "entries", f)
-            for f in os.listdir(os.path.join(self.config["journal"], "entries"))
-        ]
         filenames = []
         for root, dirnames, f in os.walk(self.config["journal"]):
             for filename in fnmatch.filter(f, "*.doentry"):

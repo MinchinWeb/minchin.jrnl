@@ -20,7 +20,7 @@ class Exporter(BaseExporter):
     
     It is explicitly designed to produce source files for generating a `Pelican
     <https://getpelican.com/>`_ blog. In particular, the YAML front matter has
-    no beginning `---`.
+    no beginning or end markers (e.g. `---`).
     """
 
     names = ["pelican"]
@@ -32,8 +32,8 @@ class Exporter(BaseExporter):
         """Returns a markdown representation of a single entry, with YAML front matter."""
         if to_multifile is False:
             print(
-                f"{ERROR_COLOR}ERROR{RESET_COLOR}: YAML export must be to individual files. Please \
-                specify a directory to export to.",
+                f"{ERROR_COLOR}ERROR{RESET_COLOR}: Pelican export must be to \
+                individual files. Please specify a directory to export to.",
                 file=sys.stderr,
             )
             return
@@ -134,7 +134,7 @@ class Exporter(BaseExporter):
     def export_journal(cls, journal):
         """Returns an error, as YAML export requires a directory as a target."""
         print(
-            "{}ERROR{}: YAML export must be to individual files. Please specify a directory to export to.".format(
+            "{}ERROR{}: Pelican export must be to individual files. Please specify a directory to export to.".format(
                 ERROR_COLOR, RESET_COLOR
             ),
             file=sys.stderr,
