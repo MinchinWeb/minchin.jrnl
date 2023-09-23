@@ -14,9 +14,16 @@ from ... import __version__  # deliberate relative import
 
 
 class Exporter(BaseExporter):
-    """This Exporter can convert entries and journals into Markdown formatted text with YAML front matter."""
+    """
+    This Exporter can convert entries and journals into Markdown formatted text
+    with YAML front matter.
+    
+    It is explicitly designed to produce source files for generating a `Pelican
+    <https://getpelican.com/>`_ blog. In particular, the YAML front matter has
+    no beginning `---`.
+    """
 
-    names = ["yaml"]
+    names = ["pelican"]
     extension = "md"
     version = __version__
 
@@ -39,14 +46,14 @@ class Exporter(BaseExporter):
         # see also Entry.Entry.rag_regex
         multi_tag_regex = re.compile(rf"(?u)^\s*([{tagsymbols}][-+*#/\w]+\s*)+$")
 
-        """Increase heading levels in body text"""
+        # Increase heading levels in body text
         newbody = ""
         heading = "#"
         previous_line = ""
         warn_on_heading_level = False
         for line in body.splitlines(True):
             if re.match(r"^#+ ", line):
-                """ATX style headings"""
+                # ATX style headings
                 newbody = newbody + previous_line + heading + line
                 if re.match(r"^#######+ ", heading + line):
                     warn_on_heading_level = True
@@ -54,17 +61,17 @@ class Exporter(BaseExporter):
             elif re.match(r"^=+$", line.rstrip()) and not re.match(
                 r"^$", previous_line.strip()
             ):
-                """Setext style H1"""
+                # Setext style H1
                 newbody = newbody + heading + "# " + previous_line
                 line = ""
             elif re.match(r"^-+$", line.rstrip()) and not re.match(
                 r"^$", previous_line.strip()
             ):
-                """Setext style H2"""
+                # Setext style H2
                 newbody = newbody + heading + "## " + previous_line
                 line = ""
             elif multi_tag_regex.match(line):
-                """Tag only lines"""
+                # Tag only lines
                 line = ""
             else:
                 newbody = newbody + previous_line
