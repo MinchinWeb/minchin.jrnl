@@ -4,6 +4,7 @@ Changelog for *minchin.jrnl* v. |release|
 *This starts with v7. Future plans are to add the changelog of previous
 versions at a later date to this format.*
 
+- :bug:`- major` allow exporting files to nested directories.
 - :bug:`- major` Work with updated (v4 or greater)`tzlocal` API. (DayOne
   classic journal particular issue.) c.f. legacy `Pull Request #1528
   <https://github.com/jrnl-org/jrnl/pull/1528>`_.
