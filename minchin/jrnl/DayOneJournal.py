@@ -11,8 +11,12 @@ import socket
 import time
 import uuid
 from xml.parsers.expat import ExpatError
+try:
+    import zoneinfo
+except ImportError:
+    # for Python <= 3.8
+    from backports import zoneinfo
 
-import pytz
 import tzlocal
 
 from . import Entry, Journal, __version__
@@ -52,14 +56,16 @@ class DayOne(Journal.Journal):
                     pass
                 else:
                     try:
-                        timezone = pytz.timezone(dict_entry["Time Zone"])
-                    except (KeyError, pytz.exceptions.UnknownTimeZoneError):
-                        timezone = tzlocal.get_localzone()
+                        timezone = zoneinfo.ZoneInfo(dict_entry["Time Zone"])
+                    # should also catch bad timezones here
+                    except KeyError:
+                        _timezone_str = str(tzlocal.get_localzone())
+                        timezone = zoneinfo.ZoneInfo(_timezone_str)
                     date = dict_entry["Creation Date"]
                     # convert the date to UTC rather than keep messing with
                     # timezones
-                    if timezone.zone != "UTC":
-                        date = date + timezone.utcoffset(date, is_dst=False)
+                    if timezone.key != "UTC":
+                        date = date.replace(fold=1) + timezone.utcoffset(date)
 
                     entry = Entry.Entry(
                         self,

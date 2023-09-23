@@ -9,5 +9,5 @@ pyyaml >= 5.1
 rich
 
 # dayone-only dependencies
-pytz >= 2020           # https://pythonhosted.org/pytz/#issues-limitations
-tzlocal
+tzlocal >= 4
+backports.zoneinfo;python_version<"3.9"

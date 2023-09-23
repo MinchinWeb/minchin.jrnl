@@ -32,8 +32,6 @@ pygments==2.16.1
     # via rich
 python-dateutil==2.8.2
     # via -r .\.requirements\base.in
-pytz==2023.3.post1
-    # via -r .\.requirements\base.in
 pywin32-ctypes==0.2.2
     # via keyring
 pyxdg==0.28
