@@ -190,3 +190,5 @@ Development Tips
    exporters. As well, there are some basic external examples included in
    *minchin.jrnl*\ 's git repo at ``tests/external_plugins_src`` (including the
    example code above).
+- overwrite ``def make_filename(cls, entry)`` (class method) to change the
+  exported files' filenames.

@@ -17,7 +17,7 @@ class Exporter(BaseExporter):
     """
     This Exporter can convert entries and journals into Markdown formatted text
     with YAML front matter.
-    
+
     It is explicitly designed to produce source files for generating a `Pelican
     <https://getpelican.com/>`_ blog. In particular, the YAML front matter has
     no beginning or end markers (e.g. `---`).

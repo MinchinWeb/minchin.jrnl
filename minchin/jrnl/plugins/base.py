@@ -54,6 +54,7 @@ class BaseExporter:
     @classmethod
     def write_file(cls, journal, path):
         """Exports a journal into a single file."""
+        path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
         try:
             with open(path, "w", encoding="utf-8") as f:
