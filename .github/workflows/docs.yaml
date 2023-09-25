@@ -22,7 +22,7 @@ jobs:
       - uses: abbbi/github-actions-tune@v1
 
       - name: Checkout Source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Python
         id: pthon-install
