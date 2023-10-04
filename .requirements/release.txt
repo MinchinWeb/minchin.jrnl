@@ -12,7 +12,7 @@ certifi==2023.7.22
     # via
     #   minchin-releaser
     #   requests
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via requests
 colorama==0.4.6
     # via
@@ -22,7 +22,7 @@ docutils==0.20.1
     # via readme-renderer
 gitdb==4.0.10
     # via gitpython
-gitpython==3.1.36
+gitpython==3.1.37
     # via minchin-releaser
 idna==3.4
     # via requests
@@ -50,7 +50,7 @@ more-itertools==10.1.0
     # via jaraco-classes
 nh3==0.2.14
     # via readme-renderer
-packaging==23.1
+packaging==23.2
     # via build
 pkginfo==1.9.6
     # via twine
@@ -74,17 +74,19 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.5.2
+rich==13.6.0
     # via twine
-semantic-version==2.10.0
-    # via minchin-releaser
+semantic-version==2.6.0
+    # via
+    #   -r .\.requirements\release.in
+    #   minchin-releaser
 six==1.16.0
     # via bleach
-smmap==5.0.0
+smmap==5.0.1
     # via gitdb
 twine==4.0.2
     # via minchin-releaser
-urllib3==2.0.4
+urllib3==2.0.6
     # via
     #   minchin-releaser
     #   requests
@@ -93,5 +95,5 @@ webencodings==0.5.1
     # via bleach
 wheel==0.41.2
     # via minchin-releaser
-zipp==3.16.2
+zipp==3.17.0
     # via importlib-metadata

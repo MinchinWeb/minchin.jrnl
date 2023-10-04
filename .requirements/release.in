@@ -2,3 +2,6 @@
 
 invoke
 minchin.releaser >= 0.9.0
+
+# see https://github.com/bitprophet/releases/pull/86#issuecomment-580037996
+semantic_version < 2.7

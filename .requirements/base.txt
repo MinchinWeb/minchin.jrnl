@@ -4,7 +4,7 @@
 #
 #    pip-compile '.\.requirements\base.in'
 #
-cffi==1.15.1
+cffi==1.16.0
     # via cryptography
 colorama==0.4.6
     # via -r .\.requirements\base.in
@@ -24,7 +24,7 @@ more-itertools==10.1.0
     # via jaraco-classes
 parsedatetime==2.6
     # via -r .\.requirements\base.in
-platformdirs==3.10.0
+platformdirs==3.11.0
     # via -r .\.requirements\base.in
 pycparser==2.21
     # via cffi
@@ -38,13 +38,13 @@ pyxdg==0.28
     # via -r .\.requirements\base.in
 pyyaml==6.0.1
     # via -r .\.requirements\base.in
-rich==13.5.3
+rich==13.6.0
     # via -r .\.requirements\base.in
 six==1.16.0
     # via python-dateutil
 tzdata==2023.3
     # via tzlocal
-tzlocal==5.0.1
+tzlocal==5.1
     # via -r .\.requirements\base.in
-zipp==3.16.2
+zipp==3.17.0
     # via importlib-metadata
