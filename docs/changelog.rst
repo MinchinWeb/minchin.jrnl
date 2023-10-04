@@ -4,8 +4,9 @@ Changelog for *minchin.jrnl* v. |release|
 *This starts with v7. Future plans are to add the changelog of previous
 versions at a later date to this format.*
 
+- :release:`7.1.0 <2023-10-04>`
 - :bug:`- major` allow exporting files to nested directories.
-- :bug:`- major` Work with updated (v4 or greater)`tzlocal` API. (DayOne
+- :bug:`- major` Work with updated (v4 or later) ``tzlocal`` API. (DayOne
   classic journal particular issue.) c.f. legacy `Pull Request #1528
   <https://github.com/jrnl-org/jrnl/pull/1528>`_.
 - :feature:`-` allow top-level ``__version__`` without use of an
@@ -15,7 +16,7 @@ versions at a later date to this format.*
 - :feature:`-` merge external plugin support, as per legacy `Pull Request #1216
   <https://github.com/jrnl-org/jrnl/pull/1216>`_. Also merges relevant parts of
   legacy `Pull Request #1115 <https://github.com/jrnl-org/jrnl/pull/1115>`_;
-  c.f. legacy `Pull Request #1281
+  c.f. legacy `Pull Request #1281.
   <https://github.com/jrnl-org/jrnl/pull/1281>`_.
 - :release:`7.0.0 <2023-9-19>`
 - :support:`-` add GitHub dependabot congifuration (to keep GitHub
