@@ -18,7 +18,7 @@ versions at a later date to this format.*
   legacy `Pull Request #1115 <https://github.com/jrnl-org/jrnl/pull/1115>`_;
   c.f. legacy `Pull Request #1281.
   <https://github.com/jrnl-org/jrnl/pull/1281>`_.
-- :release:`7.0.0 <2023-9-19>`
+- :release:`7.0.0 <2023-09-19>`
 - :support:`-` add GitHub dependabot congifuration (to keep GitHub
   actions up to date).
 - :support:`-` switch from *poetry* to *setuptools* and *pip-tools*

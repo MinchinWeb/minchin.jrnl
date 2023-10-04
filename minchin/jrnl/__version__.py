@@ -14,7 +14,7 @@ jrnl-org/jrnl ("legacy") releases.
 """
 import sys
 
-__version__ = "7.1.0"
+__version__ = "7.1.1-dev"
 
 
 # this makes the version available at `minchin.jrnl.__version__` without
