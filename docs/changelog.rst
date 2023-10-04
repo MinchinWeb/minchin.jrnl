@@ -55,8 +55,10 @@ The changelog is managed with `Releases`_.
 Git History Comparisions
 ------------------------
 
-- `7.0.0 to (development) head
-  <https://github.com/MinchinWeb/minchin.jrnl/compare/7.0.0...phoenix>`_
+- `7.1.0 to (development) head
+  <https://github.com/MinchinWeb/minchin.jrnl/compare/7.1.0...phoenix>`_
+- `7.0.0 to 7.1.0
+  <https://github.com/MinchinWeb/minchin.jrnl/compare/7.0.0...7.1.0>`_
 - `2.6.0 (last "legacy" release) to 7.0.0
   <https://github.com/MinchinWeb/minchin.jrnl/compare/legacy/v2.6.0...7.0.0>`_
 
